@@ -52,6 +52,15 @@
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="4" style="text-align: right;">Total (page / global)</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
             </table>
         </div>
     </div>
@@ -236,6 +245,30 @@ $(document).ready(function() {
                 orderable: false
             }
         ],
+        footerCallback: function(row, data, start, end, display) {
+            var api = this.api();
+            var parseValue = function(i) {
+                if (typeof i === 'string') {
+                    return parseFloat(i.replace(/[^
+\d\.\-]/g, '')) || 0;
+                }
+                return typeof i === 'number' ? i : 0;
+            };
+            var totalQty = api.column(4, { search: 'applied' }).data().reduce(function(a, b) {
+                return a + parseValue(b);
+            }, 0);
+            var pageQty = api.column(4, { page: 'current' }).data().reduce(function(a, b) {
+                return a + parseValue(b);
+            }, 0);
+            var totalAmt = api.column(6, { search: 'applied' }).data().reduce(function(a, b) {
+                return a + parseValue(b);
+            }, 0);
+            var pageAmt = api.column(6, { page: 'current' }).data().reduce(function(a, b) {
+                return a + parseValue(b);
+            }, 0);
+            $(api.column(4).footer()).html(pageQty.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' / ' + totalQty.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+            $(api.column(6).footer()).html(pageAmt.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' / ' + totalAmt.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' FC');
+        },
         order: [[0, 'desc']]
     });
 });

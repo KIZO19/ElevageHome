@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# 1. Ajouter tous les changements
+git add .
+
+# 2. Créer le message avec la date et l'heure actuelle
+message="Auto-commit du $(date +'%d/%m/%Y à %H:%M:%S')"
+
+# 3. Committer
+git commit -m "$message"
+
+# 4. Pousser vers le dépôt distant
+# Remplacez 'main' par votre branche si nécessaire
+git push origin master
+
+echo "✅ Sauvegarde automatique terminée avec succès !"

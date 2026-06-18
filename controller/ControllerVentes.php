@@ -46,17 +46,22 @@ class ControllerVentes extends Controller {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = $_POST;
             
-            // Validation
-            if (empty($data['id_bande']) || empty($data['id_client']) || empty($data['produit_vendu']) || 
-                empty($data['quantite_vendue']) || empty($data['prix_unitaire']) || 
-                empty($data['date_vente'])) {
-                $error = 'Les champs obligatoires doivent être remplis';
-                $this->render('ventes/add', [
-                    'error' => $error,
-                    'bandes' => $bandes,
-                    'clients' => $clients
-                ]);
-                return;
+            $requireClient = $ventesManager->hasClientColumn();
+            $requiredFields = ['id_bande', 'produit_vendu', 'quantite_vendue', 'prix_unitaire', 'date_vente'];
+            if ($requireClient) {
+                $requiredFields[] = 'id_client';
+            }
+
+            foreach ($requiredFields as $field) {
+                if (empty($data[$field])) {
+                    $error = 'Les champs obligatoires doivent être remplis';
+                    $this->render('ventes/add', [
+                        'error' => $error,
+                        'bandes' => $bandes,
+                        'clients' => $clients
+                    ]);
+                    return;
+                }
             }
             
             try {
@@ -95,16 +100,23 @@ class ControllerVentes extends Controller {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = $_POST;
             
-            if (empty($data['id_client']) || empty($data['quantite_vendue']) || empty($data['prix_unitaire']) || 
-                empty($data['date_vente'])) {
-                $error = 'Les champs obligatoires doivent être remplis';
-                $this->render('ventes/edit', [
-                    'vente' => $vente,
-                    'bandes' => $bandes,
-                    'clients' => $clients,
-                    'error' => $error
-                ]);
-                return;
+            $requireClient = $ventesManager->hasClientColumn();
+            $requiredFields = ['quantite_vendue', 'prix_unitaire', 'date_vente'];
+            if ($requireClient) {
+                $requiredFields[] = 'id_client';
+            }
+
+            foreach ($requiredFields as $field) {
+                if (empty($data[$field])) {
+                    $error = 'Les champs obligatoires doivent être remplis';
+                    $this->render('ventes/edit', [
+                        'vente' => $vente,
+                        'bandes' => $bandes,
+                        'clients' => $clients,
+                        'error' => $error
+                    ]);
+                    return;
+                }
             }
             
             try {

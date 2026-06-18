@@ -46,6 +46,14 @@
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="2" style="text-align: right;">Total (page / global)</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
             </table>
         </div>
     </div>
@@ -230,6 +238,23 @@ $(document).ready(function() {
                 orderable: false
             }
         ],
+        footerCallback: function(row, data, start, end, display) {
+            var api = this.api();
+            var parseValue = function(i) {
+                if (typeof i === 'string') {
+                    return parseFloat(i.replace(/[^
+\d\.\-]/g, '')) || 0;
+                }
+                return typeof i === 'number' ? i : 0;
+            };
+            var totalMorts = api.column(2, { search: 'applied' }).data().reduce(function(a, b) {
+                return a + parseValue(b);
+            }, 0);
+            var pageMorts = api.column(2, { page: 'current' }).data().reduce(function(a, b) {
+                return a + parseValue(b);
+            }, 0);
+            $(api.column(2).footer()).html(pageMorts.toLocaleString('fr-FR', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + ' / ' + totalMorts.toLocaleString('fr-FR', { minimumFractionDigits: 0, maximumFractionDigits: 0 }));
+        },
         order: [[0, 'desc']]
     });
 });

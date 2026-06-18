@@ -1,31 +1,48 @@
 <?php
 
 class VentesManager extends Model {
-    
+    private $hasClientColumn = null;
+
+    public function hasClientColumn(): bool {
+        if ($this->hasClientColumn === null) {
+            $result = $this->fetchAll("SHOW COLUMNS FROM ventes_recettes LIKE 'id_client'");
+            $this->hasClientColumn = !empty($result);
+        }
+        return $this->hasClientColumn;
+    }
+
+    private function getVenteSelectQuery(): string {
+        if ($this->hasClientColumn()) {
+            return "SELECT v.*, b.code_bande, c.nom_complet AS client_nom
+                    FROM ventes_recettes v
+                    JOIN bandes b ON v.id_bande = b.id_bande
+                    LEFT JOIN clients c ON v.id_client = c.id_client";
+        }
+
+        return "SELECT v.*, b.code_bande
+                FROM ventes_recettes v
+                JOIN bandes b ON v.id_bande = b.id_bande";
+    }
+
     public function getAllVentes() {
-        return $this->fetchAll("
-            SELECT v.*, b.code_bande, c.nom_complet AS client_nom
-            FROM ventes_recettes v
-            JOIN bandes b ON v.id_bande = b.id_bande
-            LEFT JOIN clients c ON v.id_client = c.id_client
+        return $this->fetchAll($this->getVenteSelectQuery() . "
             ORDER BY v.date_vente DESC
             LIMIT 100
         ");
     }
     
     public function getVenteById($id) {
-        return $this->fetch("
-            SELECT v.*, b.code_bande, c.nom_complet AS client_nom
-            FROM ventes_recettes v
-            JOIN bandes b ON v.id_bande = b.id_bande
-            LEFT JOIN clients c ON v.id_client = c.id_client
+        return $this->fetch($this->getVenteSelectQuery() . "
             WHERE v.id_vente = ?
         ", [$id]);
     }
     
     public function getVentesByClient($id_client) {
-        return $this->fetchAll("
-            SELECT v.*, b.code_bande
+        if (!$this->hasClientColumn()) {
+            return [];
+        }
+
+        return $this->fetchAll("SELECT v.*, b.code_bande
             FROM ventes_recettes v
             JOIN bandes b ON v.id_bande = b.id_bande
             WHERE v.id_client = ?
@@ -60,11 +77,7 @@ class VentesManager extends Model {
     }
     
     public function getVentesByDateRange($date_debut, $date_fin) {
-        return $this->fetchAll("
-            SELECT v.*, b.code_bande, c.nom_complet AS client_nom
-            FROM ventes_recettes v
-            JOIN bandes b ON v.id_bande = b.id_bande
-            LEFT JOIN clients c ON v.id_client = c.id_client
+        return $this->fetchAll($this->getVenteSelectQuery() . "
             WHERE v.date_vente >= ? AND v.date_vente <= ?
             ORDER BY v.date_vente DESC
             LIMIT 100
@@ -104,13 +117,28 @@ class VentesManager extends Model {
     }
     
     public function addVente($data) {
+        if ($this->hasClientColumn()) {
+            return $this->query("
+                INSERT INTO ventes_recettes (id_bande, id_client, produit_vendu, quantite_vendue, 
+                                            prix_unitaire_vente, date_vente, acheteur_ou_marche)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+            ", [
+                $data['id_bande'],
+                $data['id_client'] ?? null,
+                $data['produit_vendu'] ?? 'poulet_vif',
+                $data['quantite_vendue'],
+                $data['prix_unitaire'],
+                $data['date_vente'],
+                $data['acheteur_ou_marche'] ?? null
+            ]);
+        }
+
         return $this->query("
-            INSERT INTO ventes_recettes (id_bande, id_client, produit_vendu, quantite_vendue, 
+            INSERT INTO ventes_recettes (id_bande, produit_vendu, quantite_vendue, 
                                         prix_unitaire_vente, date_vente, acheteur_ou_marche)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?)
         ", [
             $data['id_bande'],
-            $data['id_client'],
             $data['produit_vendu'] ?? 'poulet_vif',
             $data['quantite_vendue'],
             $data['prix_unitaire'],
@@ -120,13 +148,28 @@ class VentesManager extends Model {
     }
     
     public function updateVente($id, $data) {
+        if ($this->hasClientColumn()) {
+            return $this->query("
+                UPDATE ventes_recettes 
+                SET id_client = ?, quantite_vendue = ?, prix_unitaire_vente = ?, 
+                    date_vente = ?, acheteur_ou_marche = ?
+                WHERE id_vente = ?
+            ", [
+                $data['id_client'] ?? null,
+                $data['quantite_vendue'],
+                $data['prix_unitaire'],
+                $data['date_vente'],
+                $data['acheteur_ou_marche'] ?? null,
+                $id
+            ]);
+        }
+
         return $this->query("
             UPDATE ventes_recettes 
-            SET id_client = ?, quantite_vendue = ?, prix_unitaire_vente = ?, 
+            SET quantite_vendue = ?, prix_unitaire_vente = ?, 
                 date_vente = ?, acheteur_ou_marche = ?
             WHERE id_vente = ?
         ", [
-            $data['id_client'],
             $data['quantite_vendue'],
             $data['prix_unitaire'],
             $data['date_vente'],

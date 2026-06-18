@@ -119,6 +119,7 @@ CREATE TABLE IF NOT EXISTS `pertes_mortalite` (
 CREATE TABLE IF NOT EXISTS `ventes_recettes` (
   `id_vente` int(11) NOT NULL AUTO_INCREMENT,
   `id_bande` int(11) NOT NULL,
+  `id_client` int(11) DEFAULT NULL,
   `produit_vendu` enum('poulet_vif','oeuf_alveole','fiente_engrais') NOT NULL,
   `quantite_vendue` decimal(10,2) NOT NULL CHECK (`quantite_vendue` > 0),
   `prix_unitaire_vente` decimal(10,2) NOT NULL CHECK (`prix_unitaire_vente` >= 0),
@@ -127,8 +128,10 @@ CREATE TABLE IF NOT EXISTS `ventes_recettes` (
   `acheteur_ou_marche` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id_vente`),
   KEY `fk_ventes_bande` (`id_bande`),
+  KEY `fk_ventes_client` (`id_client`),
   KEY `date_vente` (`date_vente`),
-  CONSTRAINT `fk_ventes_bande` FOREIGN KEY (`id_bande`) REFERENCES `bandes` (`id_bande`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `fk_ventes_bande` FOREIGN KEY (`id_bande`) REFERENCES `bandes` (`id_bande`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_ventes_client` FOREIGN KEY (`id_client`) REFERENCES `clients` (`id_client`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `clients` (

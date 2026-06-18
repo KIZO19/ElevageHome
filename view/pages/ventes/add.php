@@ -34,6 +34,18 @@
             </div>
 
             <div class="form-group">
+                <label class="form-label">Client * </label>
+                <select name="id_client" class="form-control" required>
+                    <option value="">-- Sélectionner un client --</option>
+                    <?php foreach ($clients as $c): ?>
+                        <option value="<?php echo $c['id_client']; ?>">
+                            <?php echo htmlspecialchars($c['nom_complet']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label class="form-label">Type de Produit * </label>
                 <select name="produit_vendu" class="form-control" required>
                     <option value="">-- Sélectionner --</option>

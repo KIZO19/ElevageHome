@@ -19,6 +19,7 @@
                     <tr>
                         <th>Date</th>
                         <th>Espèce</th>
+                        <th>Client</th>
                         <th>Produit</th>
                         <th>Quantité</th>
                         <th>P.U.</th>
@@ -38,6 +39,7 @@
                             <tr>
                                 <td><?php echo date('d/m/Y', strtotime($v['date_vente'])); ?></td>
                                 <td><?php echo htmlspecialchars($v['code_bande']); ?></td>
+                                <td><?php echo htmlspecialchars($v['client_nom'] ?? '-'); ?></td>
                                 <td><?php echo ucfirst(str_replace('_', ' ', $v['produit_vendu'])); ?></td>
                                 <td><?php echo number_format($v['quantite_vendue'], 2); ?></td>
                                 <td><?php echo number_format($v['prix_unitaire_vente'], 2); ?> FC</td>

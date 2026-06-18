@@ -37,21 +37,24 @@ class ControllerVentes extends Controller {
     
     public function add() {
         $bandesManager = new BandesManager();
+        $clientsManager = new ClientsManager();
         $ventesManager = new VentesManager();
         
         $bandes = $bandesManager->getAllBandes();
+        $clients = $clientsManager->getAllClients();
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = $_POST;
             
             // Validation
-            if (empty($data['id_bande']) || empty($data['produit_vendu']) || 
+            if (empty($data['id_bande']) || empty($data['id_client']) || empty($data['produit_vendu']) || 
                 empty($data['quantite_vendue']) || empty($data['prix_unitaire']) || 
                 empty($data['date_vente'])) {
                 $error = 'Les champs obligatoires doivent être remplis';
                 $this->render('ventes/add', [
                     'error' => $error,
-                    'bandes' => $bandes
+                    'bandes' => $bandes,
+                    'clients' => $clients
                 ]);
                 return;
             }
@@ -64,12 +67,14 @@ class ControllerVentes extends Controller {
                 $error = 'Erreur lors de l\'ajout: ' . $e->getMessage();
                 $this->render('ventes/add', [
                     'error' => $error,
-                    'bandes' => $bandes
+                    'bandes' => $bandes,
+                    'clients' => $clients
                 ]);
             }
         } else {
             $this->render('ventes/add', [
-                'bandes' => $bandes
+                'bandes' => $bandes,
+                'clients' => $clients
             ]);
         }
     }
@@ -77,6 +82,7 @@ class ControllerVentes extends Controller {
     public function edit($id) {
         $ventesManager = new VentesManager();
         $bandesManager = new BandesManager();
+        $clientsManager = new ClientsManager();
         
         $vente = $ventesManager->getVenteById($id);
         if (!$vente) {
@@ -84,16 +90,18 @@ class ControllerVentes extends Controller {
         }
         
         $bandes = $bandesManager->getAllBandes();
+        $clients = $clientsManager->getAllClients();
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = $_POST;
             
-            if (empty($data['quantite_vendue']) || empty($data['prix_unitaire']) || 
+            if (empty($data['id_client']) || empty($data['quantite_vendue']) || empty($data['prix_unitaire']) || 
                 empty($data['date_vente'])) {
                 $error = 'Les champs obligatoires doivent être remplis';
                 $this->render('ventes/edit', [
                     'vente' => $vente,
                     'bandes' => $bandes,
+                    'clients' => $clients,
                     'error' => $error
                 ]);
                 return;
@@ -108,13 +116,15 @@ class ControllerVentes extends Controller {
                 $this->render('ventes/edit', [
                     'vente' => $vente,
                     'bandes' => $bandes,
+                    'clients' => $clients,
                     'error' => $error
                 ]);
             }
         } else {
             $this->render('ventes/edit', [
                 'vente' => $vente,
-                'bandes' => $bandes
+                'bandes' => $bandes,
+                'clients' => $clients
             ]);
         }
     }

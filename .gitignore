@@ -1,0 +1,46 @@
+# PHP
+*.php.swp
+*.swo
+*~
+.swp
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+
+# Config (sensitive data)
+config/database.php
+.env
+.env.local
+
+# Logs
+*.log
+logs/
+
+# Cache
+cache/
+tmp/
+temp/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Uploads
+uploads/
+media/
+
+# Dependencies
+vendor/
+composer.lock
+
+# OS
+.DS_Store
+Thumbs.db
+# Archives et Documentation personnelles
+/_docs/
+/_tests_and_migration/

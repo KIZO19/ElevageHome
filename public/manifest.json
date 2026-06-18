@@ -1,0 +1,121 @@
+{
+  "name": "ElevageHome - Gestion d'Exploitation Avicole",
+  "short_name": "ElevageHome",
+  "description": "Application de gestion complète pour exploitations avicoles familiales",
+  "start_url": "/ElevageHome/public/?url=dashboard",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#667eea",
+  "orientation": "portrait-primary",
+  "scope": "/ElevageHome/",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/ElevageHome/public/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/ElevageHome/public/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/ElevageHome/public/images/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/ElevageHome/public/images/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/ElevageHome/public/images/screenshot-1.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/ElevageHome/public/images/screenshot-2.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "screenshots_alt": [
+    {
+      "src": "/ElevageHome/public/images/screenshot-mobile.png",
+      "sizes": "540x720",
+      "form_factor": "narrow",
+      "description": "Vue mobile du tableau de bord"
+    },
+    {
+      "src": "/ElevageHome/public/images/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "form_factor": "wide",
+      "description": "Vue desktop du tableau de bord"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Tableau de bord",
+      "short_name": "Dashboard",
+      "description": "Accéder au tableau de bord",
+      "url": "/ElevageHome/public/?url=dashboard",
+      "icons": [
+        {
+          "src": "/ElevageHome/public/images/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Bandes",
+      "short_name": "Bandes",
+      "description": "Gestion des bandes de poules",
+      "url": "/ElevageHome/public/?url=bandes",
+      "icons": [
+        {
+          "src": "/ElevageHome/public/images/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Dépenses",
+      "short_name": "Dépenses",
+      "description": "Suivi des dépenses d'exploitation",
+      "url": "/ElevageHome/public/?url=depenses",
+      "icons": [
+        {
+          "src": "/ElevageHome/public/images/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Ventes",
+      "short_name": "Ventes",
+      "description": "Enregistrement des ventes",
+      "url": "/ElevageHome/public/?url=ventes",
+      "icons": [
+        {
+          "src": "/ElevageHome/public/images/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}

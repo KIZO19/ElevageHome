@@ -13,8 +13,8 @@
 
 <section class="hero-section">
     <div class="hero-container">
-        <h1>Pilotez votre exploitation en toute simplicité</h1>
-        <p>La plateforme tout-en-un conçue pour optimiser la gestion de votre élevage avicole, le suivi de vos hébergements et vos services de restauration.</p>
+        <h1>Pilotez votre élevage avicole en toute simplicité</h1>
+        <p>La plateforme dédiée à la gestion opérationnelle d'une exploitation avicole : suivi des espèces, dépenses, ventes, factures, clients et mortalité.</p>
         <div class="hero-actions">
             <a href="/ElevageHome/public/?url=dashboard" class="btn-primary">Accéder à l'application <i class="fas fa-arrow-right"></i></a>
         </div>
@@ -23,30 +23,30 @@
 
 <section id="features" class="welcome-container">
     <div class="section-title">
-        <h2>Une solution intégrée pour chaque pilier de votre activité</h2>
-        <p>Découvrez les outils clés mis à votre disposition pour maximiser votre productivité.</p>
+        <h2>Fonctionnalités réelles de l’application</h2>
+        <p>ElevageHome se concentre sur la gestion pratique de votre production avicole et de vos opérations commerciales.</p>
     </div>
 
     <div class="features">
         <div class="feature-card">
             <div class="icon-box avicole"><i class="fas fa-egg"></i></div>
-            <h3>Gestion Avicole</h3>
-            <p>Suivez vos espèces de volailles, optimisez les dépenses, surveillez les ventes et contrôlez précisément le taux de mortalité.</p>
+            <h3>Gestion des espèces</h3>
+            <p>Suivi des espèces, quantités, dates de lancement et statut des lots directement depuis l’interface.</p>
         </div>
         <div class="feature-card">
-            <div class="icon-box hebergement"><i class="fas fa-home"></i></div>
-            <h3>Hébergement</h3>
-            <p>Gérez vos infrastructures et vos attributions avec un système d'allocation visuel et intelligent.</p>
+            <div class="icon-box hebergement"><i class="fas fa-money-bill-wave"></i></div>
+            <h3>Suivi des dépenses</h3>
+            <p>Enregistrez les charges, calculez les coûts unitaires et visualisez les dépenses par bande et période.</p>
         </div>
         <div class="feature-card">
-            <div class="icon-box restauration"><i class="fas fa-utensils"></i></div>
-            <h3>Restauration</h3>
-            <p>Organisez vos services, planifiez vos menus et suivez les consommations avec des outils modernes.</p>
+            <div class="icon-box restauration"><i class="fas fa-shopping-cart"></i></div>
+            <h3>Ventes et facturation</h3>
+            <p>Créez vos ventes, générez des factures automatiques et suivez les paiements clients.</p>
         </div>
         <div class="feature-card">
-            <div class="icon-box analytics"><i class="fas fa-chart-pie"></i></div>
-            <h3>Analytique & Factures</h3>
-            <p>Générez vos factures clients et analysez la rentabilité de votre exploitation en temps réel via des graphiques interactifs.</p>
+            <div class="icon-box analytics"><i class="fas fa-heartbeat"></i></div>
+            <h3>Performance & mortalité</h3>
+            <p>Analysez les pertes, le taux de mortalité et la rentabilité de votre exploitation avec des rapports clairs.</p>
         </div>
     </div>
 </section>

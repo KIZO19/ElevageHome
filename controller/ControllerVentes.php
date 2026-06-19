@@ -39,6 +39,7 @@ class ControllerVentes extends Controller {
         $bandesManager = new BandesManager();
         $clientsManager = new ClientsManager();
         $ventesManager = new VentesManager();
+        $facturesManager = new FacturesManager();
         
         $bandes = $bandesManager->getAllBandes();
         $clients = $clientsManager->getAllClients();
@@ -66,6 +67,11 @@ class ControllerVentes extends Controller {
             
             try {
                 $ventesManager->addVente($data);
+
+                if (!empty($data['id_client'])) {
+                    $facturesManager->createFactureFromVente($data);
+                }
+
                 header('Location: /ElevageHome/public/?url=ventes');
                 exit;
             } catch (Exception $e) {

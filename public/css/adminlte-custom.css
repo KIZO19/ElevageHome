@@ -26,6 +26,125 @@ html, body {
     color: #333;
 }
 
+body.theme-light {
+    background: #f4f7fa;
+    color: #333;
+}
+
+body.theme-dark {
+    background: #111827;
+    color: #e5e7eb;
+}
+
+body.theme-custom {
+    background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+    color: #f8fafc;
+}
+
+body.theme-dark .navbar,
+body.theme-dark .card,
+body.theme-dark .sidebar,
+body.theme-dark .content-wrapper,
+body.theme-dark .info-box,
+body.theme-dark .table,
+body.theme-dark .card-header,
+body.theme-dark .card-footer {
+    background: #1f2937;
+    color: #e5e7eb;
+    border-color: #374151;
+}
+
+body.theme-dark .navbar {
+    background: #0f172a;
+}
+
+body.theme-dark .sidebar {
+    background: #111827;
+}
+
+body.theme-dark .content-wrapper,
+body.theme-dark .card,
+body.theme-dark .card-header,
+body.theme-dark .card-footer,
+body.theme-dark .info-box {
+    background: #111827;
+}
+
+body.theme-dark .table th,
+body.theme-dark .table td {
+    background: #111827;
+    color: #e5e7eb;
+}
+
+body.theme-custom .navbar,
+body.theme-custom .card,
+body.theme-custom .sidebar,
+body.theme-custom .content-wrapper,
+body.theme-custom .info-box,
+body.theme-custom .card-header,
+body.theme-custom .card-footer {
+    background: rgba(15, 118, 110, 0.96);
+    color: #f8fafc;
+    border-color: rgba(20, 184, 166, 0.75);
+}
+
+body.theme-custom .content-wrapper,
+body.theme-custom .card,
+body.theme-custom .card-header,
+body.theme-custom .card-footer,
+body.theme-custom .info-box {
+    background: rgba(15, 118, 110, 0.96);
+}
+
+body.theme-custom .table th,
+body.theme-custom .table td {
+    background: rgba(255,255,255,0.08);
+    color: #f8fafc;
+}
+
+body.theme-dark a,
+body.theme-custom a {
+    color: #38bdf8;
+}
+
+body.theme-dark .sidebar-menu > li > a,
+body.theme-dark .sidebar-menu .menu-title,
+body.theme-custom .sidebar-menu > li > a,
+body.theme-custom .sidebar-menu .menu-title {
+    color: #d1d5db;
+}
+
+body.theme-dark .sidebar-menu > li > a.active,
+body.theme-custom .sidebar-menu > li > a.active {
+    background: rgba(56, 189, 248, 0.15);
+    color: #ffffff;
+}
+
+body.theme-dark .table th,
+body.theme-dark .table td {
+    border-color: #374151;
+}
+
+body.theme-custom .table th,
+body.theme-custom .table td {
+    border-color: rgba(255,255,255,0.16);
+}
+
+.theme-selector {
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 6px;
+    padding: 6px 10px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    min-width: 120px;
+}
+
+body.theme-dark .theme-selector,
+body.theme-custom .theme-selector {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+}
+
 /* ========== WRAPPER & LAYOUT ========== */
 .wrapper {
     display: flex;

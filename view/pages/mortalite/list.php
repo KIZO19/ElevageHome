@@ -209,53 +209,11 @@
 
 <script>
 $(document).ready(function() {
-    $('#mortaliteTable').DataTable({
-        language: {
-            url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/fr-FR.json'
-        },
-        pageLength: 25,
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 
-            {
-                extend: 'csv',
-                text: 'CSV'
-            },
-            {
-                extend: 'excel',
-                text: 'Excel'
-            },
-            {
-                extend: 'pdf',
-                text: 'PDF'
-            },
-            'print'
-        ],
-        responsive: true,
-        columnDefs: [
-            {
-                targets: -1,
-                orderable: false
-            }
-        ],
-        footerCallback: function(row, data, start, end, display) {
-            var api = this.api();
-            var parseValue = function(i) {
-                if (typeof i === 'string') {
-                    return parseFloat(i.replace(/[^
-\d\.\-]/g, '')) || 0;
-                }
-                return typeof i === 'number' ? i : 0;
-            };
-            var totalMorts = api.column(2, { search: 'applied' }).data().reduce(function(a, b) {
-                return a + parseValue(b);
-            }, 0);
-            var pageMorts = api.column(2, { page: 'current' }).data().reduce(function(a, b) {
-                return a + parseValue(b);
-            }, 0);
-            $(api.column(2).footer()).html(pageMorts.toLocaleString('fr-FR', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + ' / ' + totalMorts.toLocaleString('fr-FR', { minimumFractionDigits: 0, maximumFractionDigits: 0 }));
-        },
-        order: [[0, 'desc']]
+    initFullDataTable('#mortaliteTable', {
+        order: [[0, 'desc']],
+        totalColumns: [
+            { index: 2, decimals: 0 }
+        ]
     });
 });
 </script>

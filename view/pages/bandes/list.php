@@ -228,35 +228,7 @@
 
 <script>
 $(document).ready(function() {
-    $('#bandesTable').DataTable({
-        language: {
-            url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/fr-FR.json'
-        },
-        pageLength: 25,
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 
-            {
-                extend: 'csv',
-                text: 'CSV'
-            },
-            {
-                extend: 'excel',
-                text: 'Excel'
-            },
-            {
-                extend: 'pdf',
-                text: 'PDF'
-            },
-            'print'
-        ],
-        responsive: true,
-        columnDefs: [
-            {
-                targets: -1,
-                orderable: false
-            }
-        ],
+    initFullDataTable('#bandesTable', {
         order: [[0, 'asc']]
     });
 });

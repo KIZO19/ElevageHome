@@ -216,60 +216,12 @@
 
 <script>
 $(document).ready(function() {
-    $('#depensesTable').DataTable({
-        language: {
-            url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/fr-FR.json'
-        },
-        pageLength: 25,
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 
-            {
-                extend: 'csv',
-                text: 'CSV'
-            },
-            {
-                extend: 'excel',
-                text: 'Excel'
-            },
-            {
-                extend: 'pdf',
-                text: 'PDF'
-            },
-            'print'
-        ],
-        responsive: true,
-        columnDefs: [
-            {
-                targets: -1,
-                orderable: false
-            }
-        ],
-        footerCallback: function(row, data, start, end, display) {
-            var api = this.api();
-            var parseValue = function(i) {
-                if (typeof i === 'string') {
-                    return parseFloat(i.replace(/[^
-\d\.\-]/g, '')) || 0;
-                }
-                return typeof i === 'number' ? i : 0;
-            };
-            var totalQty = api.column(4, { search: 'applied' }).data().reduce(function(a, b) {
-                return a + parseValue(b);
-            }, 0);
-            var pageQty = api.column(4, { page: 'current' }).data().reduce(function(a, b) {
-                return a + parseValue(b);
-            }, 0);
-            var totalAmt = api.column(6, { search: 'applied' }).data().reduce(function(a, b) {
-                return a + parseValue(b);
-            }, 0);
-            var pageAmt = api.column(6, { page: 'current' }).data().reduce(function(a, b) {
-                return a + parseValue(b);
-            }, 0);
-            $(api.column(4).footer()).html(pageQty.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' / ' + totalQty.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
-            $(api.column(6).footer()).html(pageAmt.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' / ' + totalAmt.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' FC');
-        },
-        order: [[0, 'desc']]
+    initFullDataTable('#depensesTable', {
+        order: [[0, 'desc']],
+        totalColumns: [
+            { index: 4, decimals: 2 },
+            { index: 6, decimals: 2, currency: 'FC' }
+        ]
     });
 });
 </script>

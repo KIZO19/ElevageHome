@@ -80,6 +80,35 @@ class FacturesManager extends Model {
             $data['prix_unitaire_vente'] ?? 0
         ]);
     }
+
+    public function createFactureFromVente($venteData) {
+        if (empty($venteData['id_client'])) {
+            return false;
+        }
+
+        $this->addFacture([
+            'id_client' => $venteData['id_client'],
+            'date_facturation' => $venteData['date_vente'] ?? date('Y-m-d'),
+            'statut_paiement' => 'non_paye',
+            'mode_paiement' => 'cash',
+            'montant_total_facture' => 0
+        ]);
+
+        $id_facture = $this->getBdd()->lastInsertId();
+        if (!$id_facture) {
+            return false;
+        }
+
+        $this->addLigneFacture($id_facture, [
+            'id_bande' => $venteData['id_bande'] ?? null,
+            'produit_vendu' => $venteData['produit_vendu'] ?? 'poulet_vif',
+            'quantite' => $venteData['quantite_vendue'] ?? 0,
+            'prix_unitaire_vente' => $venteData['prix_unitaire'] ?? 0
+        ]);
+
+        $this->updateMontantTotal($id_facture);
+        return $id_facture;
+    }
     
     public function updateStatutPaiement($id, $statut, $mode = null) {
         $query = "UPDATE factures SET statut_paiement = ? WHERE id_facture = ?";

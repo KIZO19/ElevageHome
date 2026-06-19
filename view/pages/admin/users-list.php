@@ -173,15 +173,7 @@
 
 <script>
 $(document).ready(function() {
-    $('#usersTable').DataTable({
-        language: {
-            url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/fr-FR.json'
-        },
-        pageLength: 25,
-        dom: 'Bfrtip',
-        buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
-        responsive: true,
-        columnDefs: [{targets: -1, orderable: false}],
+    initFullDataTable('#usersTable', {
         order: [[5, 'desc']]
     });
 });

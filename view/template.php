@@ -56,17 +56,24 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
     <div class="wrapper">
         <nav class="navbar">
             <div class="navbar-brand">
-                <i class="fas fa-layer-group"></i>
-                ElevageHome
+                <i class="fas fa-layer-group"></i><a href="/ElevageHome/" style="color: inherit; text-decoration: none; margin-left: 8px;">
+                ElevageHome</a>
             </div>
             
             <ul class="navbar-nav">
-                <li title="Notifications">
+                <!-- <li title="Notifications">
                     <i class="fas fa-bell"></i>
                 </li>
                 <li title="Paramètres">
                     <i class="fas fa-cog"></i>
-                </li>
+                </li> -->
+                <!-- <li>
+                    <select id="themeSelector" class="theme-selector" title="Changer le thème">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                </li> -->
             </ul>
             
             <?php if (isset($_SESSION['user_id'])): ?>
@@ -174,25 +181,55 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
     </div>
 
     <script>
-        // Service Worker Registration for PWA
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/ElevageHome/public/service-worker.js')
-                    .then(registration => {
-                        console.log('Service Worker registered successfully:', registration);
-                        setInterval(() => { registration.update(); }, 60000);
-                    })
-                    .catch(error => {
-                        console.log('Service Worker registration failed:', error);
-                    });
+        var themeKey = 'elevagehome_theme';
+        var themePalette = {
+            light: '#667eea',
+            dark: '#111827',
+            custom: '#0d9488'
+        };
+
+        function applyTheme(theme) {
+            var selected = theme || 'light';
+            document.body.classList.remove('theme-light', 'theme-dark', 'theme-custom');
+            document.body.classList.add('theme-' + selected);
+            document.body.dataset.theme = selected;
+            var themeColorMeta = document.querySelector('meta[name="theme-color"]');
+            if (themeColorMeta) {
+                themeColorMeta.content = themePalette[selected] || themePalette.light;
+            }
+            var selector = document.getElementById('themeSelector');
+            if (selector) {
+                selector.value = selected;
+            }
+        }
+
+        function saveTheme(theme) {
+            localStorage.setItem(themeKey, theme);
+        }
+
+        function loadTheme() {
+            var stored = localStorage.getItem(themeKey) || 'light';
+            applyTheme(stored);
+        }
+
+        function initThemeSelector() {
+            var themeSelector = document.getElementById('themeSelector');
+            if (!themeSelector) {
+                return;
+            }
+            themeSelector.addEventListener('change', function() {
+                saveTheme(this.value);
+                applyTheme(this.value);
             });
         }
 
-        // Mobile sidebar toggle
         document.addEventListener('DOMContentLoaded', function() {
+            loadTheme();
+            initThemeSelector();
+
             const sidebar = document.querySelector('.sidebar');
             const toggleBtn = document.querySelector('[data-toggle="sidebar"]');
-            
+
             if (toggleBtn) {
                 toggleBtn.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -208,6 +245,113 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
                 });
             }
         });
+
+        // Service Worker Registration for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/ElevageHome/public/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registered successfully:', registration);
+                        setInterval(() => { registration.update(); }, 60000);
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+
+        function initFullDataTable(selector, params) {
+            var defaults = {
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/fr-FR.json'
+                },
+                pageLength: 25,
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy',
+                    { extend: 'csv', text: 'CSV' },
+                    { extend: 'excel', text: 'Excel' },
+                    { extend: 'pdf', text: 'PDF' },
+                    'print'
+                ],
+                responsive: true,
+                orderCellsTop: true,
+                columnDefs: [{ targets: -1, orderable: false }]
+            };
+
+            var settings = $.extend(true, {}, defaults, params || {});
+            var $table = $(selector);
+            if (!$table.length) {
+                return null;
+            }
+
+            var $thead = $table.find('thead');
+            if ($thead.find('tr.filters').length === 0) {
+                var $filterRow = $('<tr class="filters"></tr>');
+                $thead.find('tr').first().find('th').each(function() {
+                    $filterRow.append('<th><input type="text" placeholder="Filtrer..." style="width:100%; box-sizing:border-box;" /></th>');
+                });
+                $thead.append($filterRow);
+            }
+
+            if ($table.find('tfoot').length === 0) {
+                var $tfoot = $('<tfoot><tr></tr></tfoot>');
+                var colCount = $thead.find('tr').first().find('th').length;
+                for (var i = 0; i < colCount; i++) {
+                    $tfoot.find('tr').append('<th></th>');
+                }
+                $table.append($tfoot);
+            }
+            $table.find('tfoot tr th').first().text('Total page / global');
+
+            settings.initComplete = function() {
+                var api = this.api();
+                $table.find('thead tr.filters th').each(function(index) {
+                    $('input', this).on('keyup change clear', function() {
+                        if (api.column(index).search() !== this.value) {
+                            api.column(index).search(this.value).draw();
+                        }
+                    });
+                });
+
+                if (typeof params === 'object' && params.totalColumns) {
+                    return;
+                }
+
+                var rowCount = api.rows({ page: 'current' }).count();
+                var totalCount = api.rows().count();
+                $(api.footer()).find('th').first().text('Lignes page / total: ' + rowCount + ' / ' + totalCount);
+            };
+
+            if (settings.totalColumns) {
+                settings.footerCallback = function(row, data, start, end, display) {
+                    var api = this.api();
+                    var parseValue = function(value) {
+                        if (typeof value === 'string') {
+                            value = value.replace(/[^0-9,\.\-]/g, '').replace(/,/g, '.');
+                            return parseFloat(value) || 0;
+                        }
+                        return typeof value === 'number' ? value : 0;
+                    };
+
+                    settings.totalColumns.forEach(function(columnConfig) {
+                        var index = columnConfig.index;
+                        var decimals = columnConfig.decimals || 2;
+                        var currency = columnConfig.currency ? ' ' + columnConfig.currency : '';
+
+                        var total = api.column(index, { search: 'applied' }).data().reduce(function(a, b) {
+                            return a + parseValue(b);
+                        }, 0);
+                        var pageTotal = api.column(index, { page: 'current' }).data().reduce(function(a, b) {
+                            return a + parseValue(b);
+                        }, 0);
+                        $(api.column(index).footer()).html(pageTotal.toLocaleString('fr-FR', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + ' / ' + total.toLocaleString('fr-FR', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + currency);
+                    });
+                };
+            }
+
+            return $table.DataTable(settings);
+        }
     </script>
 </body>
 </html>

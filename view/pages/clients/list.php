@@ -21,6 +21,7 @@
                         <th>Téléphone</th>
                         <th>Adresse</th>
                         <th>Type Client</th>
+                        <th>Dette</th>
                         <th>Date Création</th>
                         <th>Actions</th>
                     </tr>
@@ -28,7 +29,7 @@
                 <tbody>
                     <?php if (empty($clients)): ?>
                         <tr>
-                            <td colspan="6" style="text-align: center; padding: 20px; color: #999;">
+                            <td colspan="7" style="text-align: center; padding: 20px; color: #999;">
                                 Aucun client enregistré
                             </td>
                         </tr>
@@ -51,6 +52,17 @@
                                     <span style="background: <?php echo $badge['bg']; ?>; color: white; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600;">
                                         <?php echo $badge['text']; ?>
                                     </span>
+                                </td>
+                                <td>
+                                    <?php if (!empty($c['total_dette']) && $c['total_dette'] > 0): ?>
+                                        <span style="background: #f8d7da; color: #721c24; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; display: inline-block;">
+                                            <?php echo number_format($c['total_dette'], 2); ?> FC
+                                        </span>
+                                    <?php else: ?>
+                                        <span style="background: #d4edda; color: #155724; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; display: inline-block;">
+                                            0,00 FC
+                                        </span>
+                                    <?php endif; ?>
                                 </td>
                                 <td><?php echo date('d/m/Y', strtotime($c['created_at'])); ?></td>
                                 <td>
@@ -216,35 +228,7 @@
 
 <script>
 $(document).ready(function() {
-    $('#clientsTable').DataTable({
-        language: {
-            url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/fr-FR.json'
-        },
-        pageLength: 25,
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 
-            {
-                extend: 'csv',
-                text: 'CSV'
-            },
-            {
-                extend: 'excel',
-                text: 'Excel'
-            },
-            {
-                extend: 'pdf',
-                text: 'PDF'
-            },
-            'print'
-        ],
-        responsive: true,
-        columnDefs: [
-            {
-                targets: -1,
-                orderable: false
-            }
-        ],
+    initFullDataTable('#clientsTable', {
         order: [[0, 'asc']]
     });
 });

@@ -1,4 +1,6 @@
 <title>ElevageHome - Accueil</title>
+<link rel="manifest" href="/ElevageHome/public/manifest.json">
+<meta name="theme-color" content="#667eea">
 <header class="public-header">
     <div class="header-container">
         <div class="logo">
@@ -17,6 +19,7 @@
         <p>La plateforme dédiée à la gestion opérationnelle d'une exploitation avicole : suivi des espèces, dépenses, ventes, factures, clients et mortalité.</p>
         <div class="hero-actions">
             <a href="/ElevageHome/public/?url=dashboard" class="btn-primary">Accéder à l'application <i class="fas fa-arrow-right"></i></a>
+            <button id="installAppBtn" class="btn-primary" style="display:none; margin-left: 16px;">Installer l'application</button>
         </div>
     </div>
 </section>
@@ -229,3 +232,51 @@
         margin-top: 40px;
     }
 </style>
+<script>
+    let deferredPrompt = null;
+    const installBtn = document.getElementById('installAppBtn');
+
+    window.addEventListener('beforeinstallprompt', function(event) {
+        event.preventDefault();
+        deferredPrompt = event;
+        if (installBtn) {
+            installBtn.style.display = 'inline-flex';
+        }
+    });
+
+    window.addEventListener('appinstalled', function() {
+        if (installBtn) {
+            installBtn.style.display = 'none';
+        }
+        deferredPrompt = null;
+    });
+
+    if (installBtn) {
+        installBtn.addEventListener('click', async function() {
+            if (!deferredPrompt) {
+                return;
+            }
+            deferredPrompt.prompt();
+            const choiceResult = await deferredPrompt.userChoice;
+            if (choiceResult.outcome === 'accepted') {
+                console.log('Install accepted');
+            } else {
+                console.log('Install dismissed');
+            }
+            deferredPrompt = null;
+            installBtn.style.display = 'none';
+        });
+    }
+
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/ElevageHome/public/service-worker.js')
+                .then(function(registration) {
+                    console.log('Service Worker registered:', registration.scope);
+                })
+                .catch(function(error) {
+                    console.log('Service Worker registration failed:', error);
+                });
+        });
+    }
+</script>

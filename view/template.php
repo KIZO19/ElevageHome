@@ -20,6 +20,7 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="ElevageHome">
     <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="/ElevageHome/public/manifest.json">
     
     <link rel="icon" type="image/png" href="/ElevageHome/public/images/icon-192.png">
     <link rel="apple-touch-icon" href="/ElevageHome/public/images/icon-192.png">
@@ -223,9 +224,46 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
             });
         }
 
+        var deferredPrompt = null;
+        function initInstallPrompt() {
+            var installBtn = document.getElementById('installAppBtn');
+            if (!installBtn) {
+                return;
+            }
+
+            window.addEventListener('beforeinstallprompt', function(event) {
+                event.preventDefault();
+                deferredPrompt = event;
+                installBtn.style.display = 'inline-flex';
+            });
+
+            installBtn.addEventListener('click', async function() {
+                if (!deferredPrompt) {
+                    return;
+                }
+                deferredPrompt.prompt();
+                var choiceResult = await deferredPrompt.userChoice;
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the install prompt');
+                } else {
+                    console.log('User dismissed the install prompt');
+                }
+                deferredPrompt = null;
+                installBtn.style.display = 'none';
+            });
+
+            window.addEventListener('appinstalled', function() {
+                console.log('ElevageHome has been installed');
+                if (installBtn) {
+                    installBtn.style.display = 'none';
+                }
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             loadTheme();
             initThemeSelector();
+            initInstallPrompt();
 
             const sidebar = document.querySelector('.sidebar');
             const toggleBtn = document.querySelector('[data-toggle="sidebar"]');

@@ -112,14 +112,14 @@ class ControllerAuth extends Controller {
                 return;
             }
             
-            // Créer l'utilisateur SANS confirmer l'email
+            // Créer l'utilisateur en considérant l'email comme confirmé
             $userData = [
                 'prenom' => $data['first_name'],
                 'nom' => $data['last_name'],
                 'email' => $data['email'],
                 'mot_de_passe' => $data['password'],
                 'id_role' => 2, // eleveur_chef par défaut
-                'email_confirmed' => FALSE
+                'email_confirmed' => TRUE
             ];
             
             try {

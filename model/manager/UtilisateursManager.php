@@ -80,13 +80,7 @@ class UtilisateursManager extends Model {
         $user = $this->getUserByEmail($email);
         
         if ($user && password_verify($password, $user['mot_de_passe'])) {
-            // Check if email_confirmed column exists (after migration)
-            // If not, assume TRUE for backward compatibility
-            $emailConfirmed = $user['email_confirmed'] ?? true;
-            
-            if ($emailConfirmed) {
-                return $user;
-            }
+            return $user;
         }
         
         return false;

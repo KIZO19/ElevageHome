@@ -49,6 +49,11 @@ class ControllerAuth extends Controller {
             $user = $utilisateursManager->verifyPassword($email, $password);
             
             if ($user) {
+                if (isset($user['statut_compte']) && $user['statut_compte'] === 'suspendu') {
+                    $this->render('error', ['errorMsg' => 'Votre compte a été suspendu. Contactez un administrateur pour le réactiver.']);
+                    return;
+                }
+
                 $_SESSION['user_id'] = $user['id_utilisateur'];
                 $_SESSION['user_email'] = $user['email'];
                 $_SESSION['user_role'] = $user['nom_role'];

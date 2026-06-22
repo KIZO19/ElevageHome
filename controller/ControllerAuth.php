@@ -50,7 +50,7 @@ class ControllerAuth extends Controller {
             
             if ($user) {
                 if (isset($user['statut_compte']) && $user['statut_compte'] === 'suspendu') {
-                    $this->render('error', ['errorMsg' => 'Votre compte a été suspendu. Contactez un administrateur pour le réactiver.']);
+                    $this->renderPartial('error', ['errorMsg' => 'Votre compte a été suspendu. Contactez un administrateur pour le réactiver.']);
                     return;
                 }
 

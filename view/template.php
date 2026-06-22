@@ -56,6 +56,9 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
 <body>
     <div class="wrapper">
         <nav class="navbar">
+            <button class="sidebar-toggle" data-toggle="sidebar" aria-label="Ouvrir le menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <div class="navbar-brand">
                 <i class="fas fa-layer-group"></i><a href="/ElevageHome/" style="color: inherit; text-decoration: none; margin-left: 8px;">
                 ElevageHome</a>
@@ -175,7 +178,7 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
                 </li>
             </ul>
         </aside>
-
+        <div class="sidebar-overlay"></div>
         <div class="content-wrapper">
             <?php echo $content; ?>
         </div>
@@ -267,18 +270,33 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
 
             const sidebar = document.querySelector('.sidebar');
             const toggleBtn = document.querySelector('[data-toggle="sidebar"]');
+            const overlay = document.querySelector('.sidebar-overlay');
+
+            function closeSidebar() {
+                sidebar.classList.remove('active');
+                if (overlay) {
+                    overlay.classList.remove('active');
+                }
+            }
 
             if (toggleBtn) {
                 toggleBtn.addEventListener('click', function(e) {
                     e.preventDefault();
                     sidebar.classList.toggle('active');
+                    if (overlay) {
+                        overlay.classList.toggle('active');
+                    }
                 });
+            }
+
+            if (overlay) {
+                overlay.addEventListener('click', closeSidebar);
             }
 
             if (window.innerWidth < 768) {
                 document.querySelectorAll('.sidebar a').forEach(link => {
                     link.addEventListener('click', function() {
-                        sidebar.classList.remove('active');
+                        closeSidebar();
                     });
                 });
             }

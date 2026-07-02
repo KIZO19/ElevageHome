@@ -12,13 +12,13 @@ return [
         'username' => 'johkizo19@gmail.com',
         'password' => 'otpo bznf atey kuav',  // Use app password for Gmail
         'encryption' => 'tls',  // 'tls' or 'ssl'
-        'from_email' => 'noreply@elevage-home.local',
-        'from_name' => 'ElevageHome',
+        'from_email' => 'noreply@agribest.local',
+        'from_name' => 'AgriBest',
     ],
     'mail' => [
         // Fallback to PHP mail() function
-        'from_email' => 'noreply@elevage-home.local',
-        'from_name' => 'ElevageHome',
+        'from_email' => 'noreply@agribest.local',
+        'from_name' => 'AgriBest',
     ],
     'development' => [
         // Log emails to file in development

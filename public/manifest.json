@@ -1,6 +1,6 @@
 {
-  "name": "ElevageHome - Gestion d'Exploitation Avicole",
-  "short_name": "ElevageHome",
+  "name": "AgriBest - Gestion d'Exploitation Avicole",
+  "short_name": "AgriBest",
   "description": "Application de gestion complète pour exploitations avicoles familiales",
   "start_url": "/ElevageHome/public/?url=dashboard",
   "display": "standalone",

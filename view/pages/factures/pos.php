@@ -243,7 +243,7 @@
     <div class="pos-receipt">
         <!-- HEADER -->
         <div class="header">
-            <div class="logo">🐔 ÉLEVAGE HOME</div>
+            <div class="logo">🐔 AgriBest</div>
             <div class="title">FACTURE/REÇU</div>
             <div class="subtitle">Gestion d'Élevage Familial</div>
         </div>

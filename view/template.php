@@ -15,10 +15,10 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#667eea">
-    <meta name="description" content="ElevageHome - Gestion d'exploitation avicole">
+    <meta name="description" content="AgriBest - Gestion d'exploitation avicole">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="ElevageHome">
+    <meta name="apple-mobile-web-app-title" content="AgriBest">
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="manifest" href="/ElevageHome/public/manifest.json">
     
@@ -26,7 +26,7 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
     <link rel="apple-touch-icon" href="/ElevageHome/public/images/icon-192.png">
     <link rel="manifest" href="/ElevageHome/public/manifest.json">
     
-    <title><?php echo isset($title) ? htmlspecialchars($title) . ' - ' : ''; ?>ElevageHome</title>
+    <title><?php echo isset($title) ? htmlspecialchars($title) . ' - ' : ''; ?>AgriBest</title>
     
     <link rel="stylesheet" href="/ElevageHome/public/css/adminlte-custom.css">
     
@@ -61,7 +61,7 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
             </button>
             <div class="navbar-brand">
                 <i class="fas fa-layer-group"></i><a href="/ElevageHome/" style="color: inherit; text-decoration: none; margin-left: 8px;">
-                ElevageHome</a>
+                AgriBest</a>
             </div>
             
             <ul class="navbar-nav">
@@ -185,7 +185,7 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
     </div>
 
     <script>
-        var themeKey = 'elevagehome_theme';
+        var themeKey = 'agribest_theme';
         var themePalette = {
             light: '#667eea',
             dark: '#111827',
@@ -256,7 +256,7 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
             });
 
             window.addEventListener('appinstalled', function() {
-                console.log('ElevageHome has been installed');
+                console.log('AgriBest has been installed');
                 if (installBtn) {
                     installBtn.style.display = 'none';
                 }

@@ -1,8 +1,8 @@
-# ElevageHome - Application Hybride et Responsive
+# AgriBest - Application Hybride et Responsive
 
 ## 🎯 Vue d'ensemble
 
-**ElevageHome** est une application web moderne pour la gestion d'exploitations avicoles familiales. L'application est:
+**AgriBest** est une application web moderne pour la gestion d'exploitations avicoles familiales. L'application est:
 
 - ✅ **Hybride (PWA)**: Installable comme app mobile/desktop
 - ✅ **Responsive**: Adaptée à tous les appareils (mobile, tablette, desktop)
@@ -358,4 +358,4 @@ Application développée pour gestion d'exploitations avicoles familiales.
 
 **Version**: 1.0 PWA & Responsive  
 **Dernière mise à jour**: 2026-06-16  
-**Auteur**: ElevageHome Development Team
+**Auteur**: AgriBest Development Team

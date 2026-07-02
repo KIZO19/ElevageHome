@@ -19,8 +19,8 @@ class EmailService {
            $this->fromName = $this->config['mail']['from_name'];
         } else {
            // Fallback defaults
-           $this->from = 'no-reply@elevage-home.local';
-           $this->fromName = 'ElevageHome';
+           $this->from = 'no-reply@agribest.local';
+           $this->fromName = 'AgriBest';
            $this->logEmailsToFile = true;
         }
     }
@@ -31,7 +31,7 @@ class EmailService {
     public function sendConfirmationEmail($email, $name, $confirmationToken) {
         $confirmationLink = "http://localhost/ElevageHome/public/?url=auth/confirm-email&token=" . urlencode($confirmationToken);
         
-        $subject = "Confirmez votre adresse email - ElevageHome";
+        $subject = "Confirmez votre adresse email - AgriBest";
         $htmlBody = $this->getConfirmationEmailTemplate($name, $confirmationLink);
         
         return $this->sendEmail($email, $subject, $htmlBody);
@@ -43,7 +43,7 @@ class EmailService {
     public function sendPasswordResetEmail($email, $name, $resetToken) {
         $resetLink = "http://localhost/ElevageHome/public/?url=auth/reset-password&token=" . urlencode($resetToken);
         
-        $subject = "Réinitialiser votre mot de passe - ElevageHome";
+        $subject = "Réinitialiser votre mot de passe - AgriBest";
         $htmlBody = $this->getPasswordResetEmailTemplate($name, $resetLink);
         
         return $this->sendEmail($email, $subject, $htmlBody);
@@ -53,7 +53,7 @@ class EmailService {
      * Send account approval notification
      */
     public function sendAccountApprovedEmail($email, $name) {
-        $subject = "Votre compte a été approuvé - ElevageHome";
+        $subject = "Votre compte a été approuvé - AgriBest";
         $loginLink = "http://localhost/ElevageHome/public/?url=auth/login";
         
         $htmlBody = $this->getApprovedEmailTemplate($name, $loginLink);
@@ -65,7 +65,7 @@ class EmailService {
      * Send account rejection notification
      */
     public function sendAccountRejectedEmail($email, $name, $reason = '') {
-        $subject = "Votre demande de compte a été rejetée - ElevageHome";
+        $subject = "Votre demande de compte a été rejetée - AgriBest";
         
         $htmlBody = $this->getRejectedEmailTemplate($name, $reason);
         
@@ -125,12 +125,12 @@ class EmailService {
         return "
         <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
            <div style='background: #007bff; color: white; padding: 20px; text-align: center; border-radius: 5px 5px 0 0;'>
-               <h1>ElevageHome</h1>
+               <h1>AgriBest</h1>
                <p>Confirmez votre adresse email</p>
            </div>
            <div style='padding: 30px; background: #f5f5f5; border-radius: 0 0 5px 5px;'>
                <p>Bonjour <strong>$name</strong>,</p>
-               <p>Merci de vous être inscrit sur ElevageHome!</p>
+               <p>Merci de vous être inscrit sur AgriBest!</p>
                <p>Pour activer votre compte et continuer, veuillez confirmer votre adresse email en cliquant sur le bouton ci-dessous:</p>
                <p style='text-align: center; margin-top: 30px; margin-bottom: 30px;'>
                    <a href='$confirmationLink' style='background: #28a745; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;'>
@@ -155,7 +155,7 @@ class EmailService {
         return "
         <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
            <div style='background: #ff9800; color: white; padding: 20px; text-align: center; border-radius: 5px 5px 0 0;'>
-               <h1>ElevageHome</h1>
+               <h1>AgriBest</h1>
                <p>Réinitialiser votre mot de passe</p>
            </div>
            <div style='padding: 30px; background: #f5f5f5; border-radius: 0 0 5px 5px;'>
@@ -185,7 +185,7 @@ class EmailService {
         return "
         <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
            <div style='background: #2ecc71; color: white; padding: 20px; text-align: center; border-radius: 5px 5px 0 0;'>
-               <h1>ElevageHome</h1>
+               <h1>AgriBest</h1>
                <p>✅ Votre compte a été approuvé</p>
            </div>
            <div style='padding: 30px; background: #f5f5f5; border-radius: 0 0 5px 5px;'>
@@ -194,7 +194,7 @@ class EmailService {
                <p>Vous pouvez maintenant vous connecter en utilisant vos identifiants.</p>
                <p style='text-align: center; margin-top: 30px; margin-bottom: 30px;'>
                    <a href='$loginLink' style='background: #2ecc71; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;'>
-                       Se connecter à ElevageHome
+                       Se connecter à AgriBest
                    </a>
                </p>
            </div>
@@ -210,7 +210,7 @@ class EmailService {
         return "
         <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
            <div style='background: #e74c3c; color: white; padding: 20px; text-align: center; border-radius: 5px 5px 0 0;'>
-               <h1>ElevageHome</h1>
+               <h1>AgriBest</h1>
                <p>❌ Votre demande a été rejetée</p>
            </div>
            <div style='padding: 30px; background: #f5f5f5; border-radius: 0 0 5px 5px;'>

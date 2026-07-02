@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription - ElevageHome</title>
+    <title>Inscription - AgriBest</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -191,10 +191,7 @@
             <div class="register-header">
                 <h1>
                     <i class="fas fa-user-plus"></i>
-                    ElevageHome
-                </h1>
-                <p>Créer un compte</p>
-            </div>
+                        AgriBest
 
             <div class="register-body">
                 <?php if (isset($error)): ?>

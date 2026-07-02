@@ -1,10 +1,10 @@
-<title>ElevageHome - Accueil</title>
+<title>AgriBest - Accueil</title>
 <link rel="manifest" href="/ElevageHome/public/manifest.json">
 <meta name="theme-color" content="#667eea">
 <header class="public-header">
     <div class="header-container">
         <div class="logo">
-            <i class="fas fa-layer-group"></i> ElevageHome
+            <i class="fas fa-layer-group"></i> AgriBest
         </div>
         <nav class="public-nav">
             <a href="#features">Fonctionnalités</a>
@@ -27,7 +27,7 @@
 <section id="features" class="welcome-container">
     <div class="section-title">
         <h2>Fonctionnalités réelles de l’application</h2>
-        <p>ElevageHome se concentre sur la gestion pratique de votre production avicole et de vos opérations commerciales.</p>
+        <p>AgriBest se concentre sur la gestion pratique de votre production avicole et de vos opérations commerciales.</p>
     </div>
 
     <div class="features">
@@ -55,8 +55,7 @@
 </section>
 
 <footer class="public-footer">
-    <p>&copy; <?= date('Y') ?> ElevageHome. Tous droits réservés. Design & Code par Eric BENDA.</p>
-</footer>
+        <p>&copy; <?= date('Y') ?> AgriBest. Tous droits réservés. Design & Code par Eric BENDA.</p>
 
 <style>
     /* Reset & Styles Généraux de la page publique */

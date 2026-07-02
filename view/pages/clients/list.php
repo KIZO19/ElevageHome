@@ -1,7 +1,7 @@
 <?php $active = 'clients'; $title = 'Gestion des Clients'; ?>
 
 <div class="content-header">
-    <h1>👥 Gestion des Clients</h1>
+    <h1> Gestion des Clients</h1>
     <div class="breadcrumb">
         <a href="/ElevageHome/public/?url=dashboard">Accueil</a> / Clients
     </div>

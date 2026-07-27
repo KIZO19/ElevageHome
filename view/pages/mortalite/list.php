@@ -3,14 +3,14 @@
 <div class="content-header">
     <h1>⚠️ Gestion de la Mortalité</h1>
     <div class="breadcrumb">
-        <a href="/ElevageHome/public/?url=dashboard">Accueil</a> / Mortalité
+        <a href="/agribest/public/?url=dashboard">Accueil</a> / Mortalité
     </div>
 </div>
 
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Liste des Cas de Mortalité</h3>
-        <a href="/ElevageHome/public/?url=mortalite/add" class="btn btn-primary btn-sm">➕ Ajouter</a>
+        <a href="/agribest/public/?url=mortalite/add" class="btn btn-primary btn-sm">➕ Ajouter</a>
     </div>
     <div class="card-body">
         <div style="overflow-x: auto;">
@@ -39,8 +39,8 @@
                                 <td><strong><?php echo $m['nbre_sujets_morts']; ?></strong></td>
                                 <td><?php echo htmlspecialchars($m['cause_probable'] ?? '-'); ?></td>
                                 <td>
-                                    <a href="/ElevageHome/public/?url=mortalite/edit/<?php echo $m['id_perte']; ?>" class="btn btn-primary btn-sm">✏️</a>
-                                    <a href="/ElevageHome/public/?url=mortalite/delete/<?php echo $m['id_perte']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Supprimer?')">🗑️</a>
+                                    <a href="/agribest/public/?url=mortalite/edit/<?php echo $m['id_perte']; ?>" class="btn btn-primary btn-sm">✏️</a>
+                                    <a href="/agribest/public/?url=mortalite/delete/<?php echo $m['id_perte']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Supprimer?')">🗑️</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

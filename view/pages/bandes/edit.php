@@ -3,8 +3,8 @@
 <div class="content-header">
     <h1>✏️ Modifier une Espèce</h1>
     <div class="breadcrumb">
-        <a href="/ElevageHome/public/?url=dashboard">Accueil</a> / 
-        <a href="/ElevageHome/public/?url=bandes">Espèces</a> / 
+        <a href="/agribest/public/?url=dashboard">Accueil</a> / 
+        <a href="/agribest/public/?url=bandes">Espèces</a> / 
         Modifier
     </div>
 </div>
@@ -68,7 +68,7 @@
 
             <div style="display: flex; gap: 10px; margin-top: 30px;">
                 <button type="submit" class="btn btn-primary">✅ Mettre à jour</button>
-                <a href="/ElevageHome/public/?url=bandes" class="btn btn-secondary">❌ Annuler</a>
+                <a href="/agribest/public/?url=bandes" class="btn btn-secondary">❌ Annuler</a>
             </div>
         </form>
     </div>

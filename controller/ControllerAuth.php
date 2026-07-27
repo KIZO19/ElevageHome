@@ -62,9 +62,9 @@ class ControllerAuth extends Controller {
                 
                 // Redirection basée sur le rôle
                 if ($user['nom_role'] === 'Manager') {
-                    header('Location: /ElevageHome/public/?url=admin/dashboard');
+                    header('Location: /agribest/public/?url=admin/dashboard');
                 } else {
-                    header('Location: /ElevageHome/public/?url=dashboard');
+                    header('Location: /agribest/public/?url=dashboard');
                 }
                 exit;
             } else {
@@ -78,7 +78,7 @@ class ControllerAuth extends Controller {
     
     public function logout() {
         session_destroy();
-        header('Location: /ElevageHome/public/?url=auth/login');
+        header('Location: /agribest/public/?url=auth/login');
         exit;
     }
     
@@ -266,7 +266,7 @@ class ControllerAuth extends Controller {
     
     public function profile() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /ElevageHome/public/?url=auth/login');
+            header('Location: /agribest/public/?url=auth/login');
             exit;
         }
         

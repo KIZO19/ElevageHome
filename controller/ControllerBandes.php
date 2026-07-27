@@ -7,7 +7,7 @@ class ControllerBandes extends Controller {
         
         // Vérifier l'authentification
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /ElevageHome/public/?url=auth/login');
+            header('Location: /agribest/public/?url=auth/login');
             exit;
         }
         
@@ -82,7 +82,7 @@ class ControllerBandes extends Controller {
             
             try {
                 $bandesManager->addBande($data);
-                header('Location: /ElevageHome/public/?url=bandes');
+                header('Location: /agribest/public/?url=bandes');
                 exit;
             } catch (Exception $e) {
                 $error = 'Erreur lors de l\'ajout: ' . $e->getMessage();
@@ -121,7 +121,7 @@ class ControllerBandes extends Controller {
                     $id
                 ]);
                 
-                header('Location: /ElevageHome/public/?url=bandes/view/' . $id);
+                header('Location: /agribest/public/?url=bandes/view/' . $id);
                 exit;
             } catch (Exception $e) {
                 $error = 'Erreur lors de la modification: ' . $e->getMessage();
@@ -142,9 +142,9 @@ class ControllerBandes extends Controller {
         
         try {
             // Soft delete: marquer comme clôturée
-            $bandesManager->query("UPDATE bandes SET statut_lot = 'cloture' WHERE id_bande = ?", [$id]);
+            $bandesManager->query("DELETE FROM bandes WHERE id_bande = ?", [$id]);
             
-            header('Location: /ElevageHome/public/?url=bandes');
+            header('Location: /agribest/public/?url=bandes');
             exit;
         } catch (Exception $e) {
             throw new Exception('Erreur lors de la suppression: ' . $e->getMessage());

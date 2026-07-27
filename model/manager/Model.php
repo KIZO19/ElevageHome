@@ -26,7 +26,7 @@ abstract class Model {
         return $this->_db;
     }
 
-    final protected function query($query, $data = null) {
+    final public function query($query, $data = null) {
         $req = $this->getBdd()->prepare($query);
         
         if ($data) {

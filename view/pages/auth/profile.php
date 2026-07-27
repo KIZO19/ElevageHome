@@ -56,8 +56,8 @@
             <h3 class="card-title">Sécurité</h3>
         </div>
         <div class="card-body">
-            <a href="/ElevageHome/public/?url=auth/forgot-password" class="btn btn-secondary">🔐 Changer mon mot de passe</a>
-            <a href="/ElevageHome/public/?url=auth/logout" class="btn btn-danger" style="margin-left: 10px;">🚪 Se déconnecter</a>
+            <a href="/agribest/public/?url=auth/forgot-password" class="btn btn-secondary">🔐 Changer mon mot de passe</a>
+            <a href="/agribest/public/?url=auth/logout" class="btn btn-danger" style="margin-left: 10px;">🚪 Se déconnecter</a>
         </div>
     </div>
 </div>

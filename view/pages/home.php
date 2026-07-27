@@ -1,5 +1,5 @@
 <title>AgriBest - Accueil</title>
-<link rel="manifest" href="/ElevageHome/public/manifest.json">
+<link rel="manifest" href="/agribest/public/manifest.json">
 <meta name="theme-color" content="#667eea">
 <header class="public-header">
     <div class="header-container">
@@ -8,7 +8,7 @@
         </div>
         <nav class="public-nav">
             <a href="#features">Fonctionnalités</a>
-            <a href="/ElevageHome/public/?url=auth/login" class="btn-nav-login">Connexion</a>
+            <a href="/agribest/public/?url=auth/login" class="btn-nav-login">Connexion</a>
         </nav>
     </div>
 </header>
@@ -18,7 +18,7 @@
         <h1>Pilotez votre élevage avicole en toute simplicité</h1>
         <p>La plateforme dédiée à la gestion opérationnelle d'une exploitation avicole : suivi des espèces, dépenses, ventes, factures, clients et mortalité.</p>
         <div class="hero-actions">
-            <a href="/ElevageHome/public/?url=dashboard" class="btn-primary">Accéder à l'application <i class="fas fa-arrow-right"></i></a>
+            <a href="/agribest/public/?url=dashboard" class="btn-primary">Accéder à l'application <i class="fas fa-arrow-right"></i></a>
             <button id="installAppBtn" class="btn-primary" style="display:none; margin-left: 16px;">Installer l'application</button>
         </div>
     </div>
@@ -269,7 +269,7 @@
 
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/ElevageHome/public/service-worker.js')
+            navigator.serviceWorker.register('/agribest/public/service-worker.js')
                 .then(function(registration) {
                     console.log('Service Worker registered:', registration.scope);
                 })

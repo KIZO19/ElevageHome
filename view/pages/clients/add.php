@@ -3,8 +3,8 @@
 <div class="content-header">
     <h1>➕ Ajouter un Client</h1>
     <div class="breadcrumb">
-        <a href="/ElevageHome/public/?url=dashboard">Accueil</a> / 
-        <a href="/ElevageHome/public/?url=clients">Clients</a> / 
+        <a href="/agribest/public/?url=dashboard">Accueil</a> / 
+        <a href="/agribest/public/?url=clients">Clients</a> / 
         Ajouter
     </div>
 </div>
@@ -47,7 +47,7 @@
 
             <div style="display: flex; gap: 10px; margin-top: 30px;">
                 <button type="submit" class="btn btn-primary">✅ Enregistrer</button>
-                <a href="/ElevageHome/public/?url=clients" class="btn btn-secondary">❌ Annuler</a>
+                <a href="/agribest/public/?url=clients" class="btn btn-secondary">❌ Annuler</a>
             </div>
         </form>
     </div>

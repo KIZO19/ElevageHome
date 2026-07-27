@@ -2,7 +2,7 @@
     <div class="error-content">
         <h1>❌ Erreur</h1>
         <p class="error-message"><?php echo isset($errorMsg) ? htmlspecialchars($errorMsg) : 'Une erreur inconnue s\'est produite'; ?></p>
-        <a href="/ElevageHome/public/" class="error-button">Retour à l'accueil</a>
+        <a href="/agribest/public/" class="error-button">Retour à l'accueil</a>
     </div>
 </div>
 

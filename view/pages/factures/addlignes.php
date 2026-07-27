@@ -3,8 +3,8 @@
 <div class="content-header">
     <h1>➕ Ajouter Produits à la Facture</h1>
     <div class="breadcrumb">
-        <a href="/ElevageHome/public/?url=dashboard">Accueil</a> / 
-        <a href="/ElevageHome/public/?url=factures">Factures</a> / 
+        <a href="/agribest/public/?url=dashboard">Accueil</a> / 
+        <a href="/agribest/public/?url=factures">Factures</a> / 
         Ajouter Produits
     </div>
 </div>
@@ -103,7 +103,7 @@
                                     <?php echo number_format($l['montant_ligne'], 2); ?>
                                 </td>
                                 <td style="padding: 10px; text-align: center;">
-                                    <a href="/ElevageHome/public/?url=factures/deleteligne/<?php echo $l['id_ligne']; ?>/<?php echo $facture['id_facture']; ?>" 
+                                    <a href="/agribest/public/?url=factures/deleteligne/<?php echo $l['id_ligne']; ?>/<?php echo $facture['id_facture']; ?>" 
                                        class="btn btn-danger btn-sm"
                                        onclick="return confirm('Supprimer cette ligne?')"
                                        style="background: #dc3545; color: white; padding: 4px 8px; border: none; border-radius: 4px; cursor: pointer; font-size: 11px; text-decoration: none; display: inline-block;">
@@ -135,7 +135,7 @@
                     </button>
                 </form>
             <?php endif; ?>
-            <a href="/ElevageHome/public/?url=factures" class="btn btn-secondary" style="padding: 10px 20px; background: #e9ecef; color: #495057; text-decoration: none; border-radius: 4px; font-weight: 600;">
+            <a href="/agribest/public/?url=factures" class="btn btn-secondary" style="padding: 10px 20px; background: #e9ecef; color: #495057; text-decoration: none; border-radius: 4px; font-weight: 600;">
                 ❌ Annuler
             </a>
         </div>

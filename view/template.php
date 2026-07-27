@@ -20,15 +20,15 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="AgriBest">
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="manifest" href="/ElevageHome/public/manifest.json">
+    <link rel="manifest" href="/agribest/public/manifest.json">
     
-    <link rel="icon" type="image/png" href="/ElevageHome/public/images/icon-192.png">
-    <link rel="apple-touch-icon" href="/ElevageHome/public/images/icon-192.png">
-    <link rel="manifest" href="/ElevageHome/public/manifest.json">
+    <link rel="icon" type="image/png" href="/agribest/public/images/icon-192.png">
+    <link rel="apple-touch-icon" href="/agribest/public/images/icon-192.png">
+    <link rel="manifest" href="/agribest/public/manifest.json">
     
     <title><?php echo isset($title) ? htmlspecialchars($title) . ' - ' : ''; ?>AgriBest</title>
     
-    <link rel="stylesheet" href="/ElevageHome/public/css/adminlte-custom.css">
+    <link rel="stylesheet" href="/agribest/public/css/adminlte-custom.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -60,7 +60,7 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
                 <i class="fas fa-bars"></i>
             </button>
             <div class="navbar-brand">
-                <i class="fas fa-layer-group"></i><a href="/ElevageHome/" style="color: inherit; text-decoration: none; margin-left: 8px;">
+                <i class="fas fa-layer-group"></i><a href="/agribest/" style="color: inherit; text-decoration: none; margin-left: 8px;">
                 AgriBest</a>
             </div>
             
@@ -83,7 +83,7 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
             <?php if (isset($_SESSION['user_id'])): ?>
             <div class="user-profile">
                 <div class="avatar" title="Profil">
-                    <a href="/ElevageHome/auth/profile" style="color: inherit; text-decoration: none; cursor: pointer;">
+                    <a href="/agribest/auth/profile" style="color: inherit; text-decoration: none; cursor: pointer;">
                         <?php echo strtoupper(substr($_SESSION['user_name'] ?? 'User', 0, 1)); ?>
                     </a>
                 </div>
@@ -92,10 +92,10 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
                     <div style="font-size: 11px; opacity: 0.8;"><?php echo htmlspecialchars($_SESSION['user_role'] ?? 'User'); ?></div>
                 </div>
                 <div style="display: flex; gap: 8px; margin-left: 10px;">
-                    <a href="/ElevageHome/auth/profile" title="Mon profil">
+                    <a href="/agribest/auth/profile" title="Mon profil">
                         <i class="fas fa-user"></i>
                     </a>
-                    <a href="/ElevageHome/public/?url=auth/logout" title="Déconnexion">
+                    <a href="/agribest/public/?url=auth/logout" title="Déconnexion">
                         <i class="fas fa-sign-out-alt"></i>
                     </a>
                 </div>
@@ -156,7 +156,7 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
                 <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'Manager'): ?>
                 <li class="menu-title">Administration</li>
                 <li>
-                    <a href="/ElevageHome/public/?url=admin/dashboard" <?php echo (isset($active) && $active === 'admin') ? 'class="active"' : ''; ?>>
+                    <a href="/agribest/public/?url=admin/dashboard" <?php echo (isset($active) && $active === 'admin') ? 'class="active"' : ''; ?>>
                         <i class="fas fa-users-cog"></i>
                         <span>⚙️ Utilisateurs</span>
                     </a>
@@ -165,13 +165,13 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
 
                 <li class="menu-title">Paramètres</li>
                 <li>
-                    <a href="/ElevageHome/public/?url=auth/profile" <?php echo (isset($active) && $active === 'profile') ? 'class="active"' : ''; ?>>
+                    <a href="/agribest/public/?url=auth/profile" <?php echo (isset($active) && $active === 'profile') ? 'class="active"' : ''; ?>>
                         <i class="fas fa-user"></i>
                         <span> Mon Profil</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/ElevageHome/public/?url=auth/logout">
+                    <a href="/agribest/public/?url=auth/logout">
                         <i class="fas fa-sign-out-alt"></i>
                         <span> Déconnexion</span>
                     </a>
@@ -305,7 +305,7 @@ if (!isset($_GET['url']) || empty(trim($_GET['url'], '/'))) {
         // Service Worker Registration for PWA
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/ElevageHome/public/service-worker.js')
+                navigator.serviceWorker.register('/agribest/public/service-worker.js')
                     .then(registration => {
                         console.log('Service Worker registered successfully:', registration);
                         setInterval(() => { registration.update(); }, 60000);

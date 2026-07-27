@@ -8,13 +8,13 @@ class ControllerAdmin extends Controller {
         
         // Vérifier l'authentification
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /ElevageHome/public/?url=auth/login');
+            header('Location: /agribest/public/?url=auth/login');
             exit;
         }
         
         // Vérifier que l'utilisateur est Manager
         if ($_SESSION['user_role'] !== 'Manager') {
-            header('Location: /ElevageHome/public/?url=dashboard');
+            header('Location: /agribest/public/?url=dashboard');
             exit;
         }
         
@@ -93,7 +93,7 @@ class ControllerAdmin extends Controller {
             $emailService->sendAccountApprovedEmail($user['email'], $user['prenom'] . ' ' . $user['nom']);
             
             $_SESSION['success'] = 'Compte approuvé et email de notification envoyé!';
-            header('Location: /ElevageHome/public/?url=admin/pending');
+            header('Location: /agribest/public/?url=admin/pending');
             exit;
         } catch (Exception $e) {
             throw new Exception('Erreur lors de l\'approbation: ' . $e->getMessage());
@@ -118,7 +118,7 @@ class ControllerAdmin extends Controller {
                 $emailService->sendAccountRejectedEmail($user['email'], $user['prenom'] . ' ' . $user['nom'], $reason);
                 
                 $_SESSION['success'] = 'Compte rejeté et email de notification envoyé!';
-                header('Location: /ElevageHome/public/?url=admin/pending');
+                header('Location: /agribest/public/?url=admin/pending');
                 exit;
             } catch (Exception $e) {
                 throw new Exception('Erreur lors du rejet: ' . $e->getMessage());
@@ -163,7 +163,7 @@ class ControllerAdmin extends Controller {
 
                 $utilisateursManager->updateUtilisateur($id, $data);
                 $_SESSION['success'] = 'Utilisateur mis à jour!';
-                header('Location: /ElevageHome/public/?url=admin/users');
+                header('Location: /agribest/public/?url=admin/users');
                 exit;
             } catch (Exception $e) {
                 throw new Exception('Erreur lors de la mise à jour: ' . $e->getMessage());
@@ -183,7 +183,7 @@ class ControllerAdmin extends Controller {
         try {
             $utilisateursManager->suspendUser($id);
             $_SESSION['success'] = 'Utilisateur suspendu!';
-            header('Location: /ElevageHome/public/?url=admin/users');
+            header('Location: /agribest/public/?url=admin/users');
             exit;
         } catch (Exception $e) {
             throw new Exception('Erreur lors de la suspension: ' . $e->getMessage());
@@ -196,7 +196,7 @@ class ControllerAdmin extends Controller {
         try {
             $utilisateursManager->activateUser($id);
             $_SESSION['success'] = 'Utilisateur activé!';
-            header('Location: /ElevageHome/public/?url=admin/users');
+            header('Location: /agribest/public/?url=admin/users');
             exit;
         } catch (Exception $e) {
             throw new Exception('Erreur lors de l\'activation: ' . $e->getMessage());

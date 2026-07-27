@@ -3,14 +3,14 @@
 <div class="content-header">
     <h1>💰 Gestion des Factures</h1>
     <div class="breadcrumb">
-        <a href="/ElevageHome/public/?url=dashboard">Accueil</a> / Factures
+        <a href="/agribest/public/?url=dashboard">Accueil</a> / Factures
     </div>
 </div>
 
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Liste des Factures</h3>
-        <a href="/ElevageHome/public/?url=factures/add" class="btn btn-primary btn-sm">➕ Nouvelle Facture</a>
+        <a href="/agribest/public/?url=factures/add" class="btn btn-primary btn-sm">➕ Nouvelle Facture</a>
     </div>
     <div class="card-body">
         <div style="overflow-x: auto;">
@@ -56,9 +56,9 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <a href="/ElevageHome/public/?url=factures/view/<?php echo $f['id_facture']; ?>" class="btn btn-info btn-sm">👁️</a>
-                                    <a href="/ElevageHome/public/?url=factures/edit/<?php echo $f['id_facture']; ?>" class="btn btn-primary btn-sm">✏️</a>
-                                    <a href="/ElevageHome/public/?url=factures/delete/<?php echo $f['id_facture']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Supprimer?')">🗑️</a>
+                                    <a href="/agribest/public/?url=factures/view/<?php echo $f['id_facture']; ?>" class="btn btn-info btn-sm">👁️</a>
+                                    <a href="/agribest/public/?url=factures/edit/<?php echo $f['id_facture']; ?>" class="btn btn-primary btn-sm">✏️</a>
+                                    <a href="/agribest/public/?url=factures/delete/<?php echo $f['id_facture']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Supprimer?')">🗑️</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

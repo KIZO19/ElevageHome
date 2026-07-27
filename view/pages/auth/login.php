@@ -248,8 +248,8 @@
             </div>
 
             <div class="login-footer">
-                <p style="margin-bottom: 10px;">Pas encore de compte? <a href="/ElevageHome/public/?url=auth/register">S'inscrire ici</a></p>
-                <p><a href="/ElevageHome/public/?url=auth/forgot-password">Mot de passe oublié?</a></p>
+                <p style="margin-bottom: 10px;">Pas encore de compte? <a href="/agribest/public/?url=auth/register">S'inscrire ici</a></p>
+                <p><a href="/agribest/public/?url=auth/forgot-password">Mot de passe oublié?</a></p>
             </div>
         </div>
     </div>

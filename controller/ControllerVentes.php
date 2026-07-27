@@ -7,7 +7,7 @@ class ControllerVentes extends Controller {
         
         // Vérifier l'authentification
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /ElevageHome/public/?url=auth/login');
+            header('Location: /agribest/public/?url=auth/login');
             exit;
         }
         
@@ -72,7 +72,7 @@ class ControllerVentes extends Controller {
                     $facturesManager->createFactureFromVente($data);
                 }
 
-                header('Location: /ElevageHome/public/?url=ventes');
+                header('Location: /agribest/public/?url=ventes');
                 exit;
             } catch (Exception $e) {
                 $error = 'Erreur lors de l\'ajout: ' . $e->getMessage();
@@ -127,7 +127,7 @@ class ControllerVentes extends Controller {
             
             try {
                 $ventesManager->updateVente($id, $data);
-                header('Location: /ElevageHome/public/?url=ventes');
+                header('Location: /agribest/public/?url=ventes');
                 exit;
             } catch (Exception $e) {
                 $error = 'Erreur: ' . $e->getMessage();
@@ -157,7 +157,7 @@ class ControllerVentes extends Controller {
         
         try {
             $ventesManager->deleteVente($id);
-            header('Location: /ElevageHome/public/?url=ventes');
+            header('Location: /agribest/public/?url=ventes');
             exit;
         } catch (Exception $e) {
             throw new Exception('Erreur lors de la suppression: ' . $e->getMessage());

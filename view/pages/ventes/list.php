@@ -3,14 +3,14 @@
 <div class="content-header">
     <h1>🛒 Gestion des Ventes</h1>
     <div class="breadcrumb">
-        <a href="/ElevageHome/public/?url=dashboard">Accueil</a> / Ventes
+        <a href="/agribest/public/?url=dashboard">Accueil</a> / Ventes
     </div>
 </div>
 
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Liste des Ventes</h3>
-        <a href="/ElevageHome/public/?url=ventes/add" class="btn btn-primary btn-sm">➕ Ajouter</a>
+        <a href="/agribest/public/?url=ventes/add" class="btn btn-primary btn-sm">➕ Ajouter</a>
     </div>
     <div class="card-body">
         <div style="overflow-x: auto;">
@@ -45,8 +45,8 @@
                                 <td><?php echo number_format($v['prix_unitaire_vente'], 2); ?> FC</td>
                                 <td><strong><?php echo number_format($v['montant_total_recette'], 2); ?> FC</strong></td>
                                 <td>
-                                    <a href="/ElevageHome/public/?url=ventes/edit/<?php echo $v['id_vente']; ?>" class="btn btn-primary btn-sm">✏️</a>
-                                    <a href="/ElevageHome/public/?url=ventes/delete/<?php echo $v['id_vente']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Supprimer?')">🗑️</a>
+                                    <a href="/agribest/public/?url=ventes/edit/<?php echo $v['id_vente']; ?>" class="btn btn-primary btn-sm">✏️</a>
+                                    <a href="/agribest/public/?url=ventes/delete/<?php echo $v['id_vente']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Supprimer?')">🗑️</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

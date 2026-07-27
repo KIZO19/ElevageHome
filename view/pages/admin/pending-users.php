@@ -2,7 +2,7 @@
 
 <div class="content-header">
     <h1>📋 Utilisateurs en attente de confirmation</h1>
-    <a href="/ElevageHome/public/?url=admin/dashboard" class="btn btn-secondary">← Retour</a>
+    <a href="/agribest/public/?url=admin/dashboard" class="btn btn-secondary">← Retour</a>
 </div>
 
 <?php if (empty($users)): ?>
@@ -44,11 +44,11 @@
                                     <?php echo date('d/m/Y H:i', strtotime($user['created_at'])); ?>
                                 </td>
                                 <td style="padding: 12px;">
-                                    <a href="/ElevageHome/public/?url=admin/approve/<?php echo $user['id_utilisateur']; ?>" 
+                                    <a href="/agribest/public/?url=admin/approve/<?php echo $user['id_utilisateur']; ?>" 
                                        class="btn btn-sm" style="background: #28a745; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px;">
                                         ✅ Approuver
                                     </a>
-                                    <a href="/ElevageHome/public/?url=admin/reject/<?php echo $user['id_utilisateur']; ?>" 
+                                    <a href="/agribest/public/?url=admin/reject/<?php echo $user['id_utilisateur']; ?>" 
                                        class="btn btn-sm" style="background: #dc3545; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; margin-left: 5px;">
                                         ❌ Rejeter
                                     </a>

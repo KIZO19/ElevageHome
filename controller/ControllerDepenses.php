@@ -7,7 +7,7 @@ class ControllerDepenses extends Controller {
         
         // Vérifier l'authentification
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /ElevageHome/public/?url=auth/login');
+            header('Location: /agribest/public/?url=auth/login');
             exit;
         }
         
@@ -58,7 +58,7 @@ class ControllerDepenses extends Controller {
             
             try {
                 $depensesManager->addDepense($data);
-                header('Location: /ElevageHome/public/?url=depenses');
+                header('Location: /agribest/public/?url=depenses');
                 exit;
             } catch (Exception $e) {
                 $error = 'Erreur lors de l\'ajout: ' . $e->getMessage();
@@ -100,7 +100,7 @@ class ControllerDepenses extends Controller {
             
             try {
                 $depensesManager->updateDepense($id, $data);
-                header('Location: /ElevageHome/public/?url=depenses');
+                header('Location: /agribest/public/?url=depenses');
                 exit;
             } catch (Exception $e) {
                 $error = 'Erreur: ' . $e->getMessage();
@@ -128,7 +128,7 @@ class ControllerDepenses extends Controller {
         
         try {
             $depensesManager->deleteDepense($id);
-            header('Location: /ElevageHome/public/?url=depenses');
+            header('Location: /agribest/public/?url=depenses');
             exit;
         } catch (Exception $e) {
             throw new Exception('Erreur lors de la suppression: ' . $e->getMessage());

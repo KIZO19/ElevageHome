@@ -3,14 +3,14 @@
 <div class="content-header">
     <h1> Gestion des Clients</h1>
     <div class="breadcrumb">
-        <a href="/ElevageHome/public/?url=dashboard">Accueil</a> / Clients
+        <a href="/agribest/public/?url=dashboard">Accueil</a> / Clients
     </div>
 </div>
 
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Liste des Clients</h3>
-        <a href="/ElevageHome/public/?url=clients/add" class="btn btn-primary btn-sm">➕ Ajouter</a>
+        <a href="/agribest/public/?url=clients/add" class="btn btn-primary btn-sm">➕ Ajouter</a>
     </div>
     <div class="card-body">
         <div style="overflow-x: auto;">
@@ -66,8 +66,8 @@
                                 </td>
                                 <td><?php echo date('d/m/Y', strtotime($c['created_at'])); ?></td>
                                 <td>
-                                    <a href="/ElevageHome/public/?url=clients/edit/<?php echo $c['id_client']; ?>" class="btn btn-primary btn-sm">✏️</a>
-                                    <a href="/ElevageHome/public/?url=clients/delete/<?php echo $c['id_client']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Supprimer ce client?')">🗑️</a>
+                                    <a href="/agribest/public/?url=clients/edit/<?php echo $c['id_client']; ?>" class="btn btn-primary btn-sm">✏️</a>
+                                    <a href="/agribest/public/?url=clients/delete/<?php echo $c['id_client']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Supprimer ce client?')">🗑️</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

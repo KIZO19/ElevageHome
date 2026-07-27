@@ -30,7 +30,7 @@
         <?php endif; ?>
         
         <div style="text-align: center; margin-top: 20px;">
-            <a href="/ElevageHome/public/?url=auth/login" style="color: #007bff; text-decoration: none;">Retour à la connexion</a>
+            <a href="/agribest/public/?url=auth/login" style="color: #007bff; text-decoration: none;">Retour à la connexion</a>
         </div>
     </div>
 </div>

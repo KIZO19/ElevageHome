@@ -7,7 +7,7 @@ class ControllerFactures extends Controller {
         
         // Vérifier l'authentification
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /ElevageHome/public/?url=auth/login');
+            header('Location: /agribest/public/?url=auth/login');
             exit;
         }
         
@@ -79,7 +79,7 @@ class ControllerFactures extends Controller {
                 $last_facture = end($factures);
                 
                 // Rediriger vers addlignes
-                header('Location: /ElevageHome/public/?url=factures/addlignes/' . $last_facture['id_facture']);
+                header('Location: /agribest/public/?url=factures/addlignes/' . $last_facture['id_facture']);
                 exit;
             } catch (Exception $e) {
                 $error = 'Erreur: ' . $e->getMessage();
@@ -124,7 +124,7 @@ class ControllerFactures extends Controller {
                         $facturesManager->updateMontantTotal($id);
                         
                         // Recharger pour afficher la nouvelle ligne
-                        header('Location: /ElevageHome/public/?url=factures/addlignes/' . $id);
+                        header('Location: /agribest/public/?url=factures/addlignes/' . $id);
                         exit;
                     } catch (Exception $e) {
                         $error = 'Erreur: ' . $e->getMessage();
@@ -140,7 +140,7 @@ class ControllerFactures extends Controller {
                     'error' => $error ?? null
                 ]);
             } elseif ($action === 'finish') {
-                header('Location: /ElevageHome/public/?url=factures/view/' . $id);
+                header('Location: /agribest/public/?url=factures/view/' . $id);
                 exit;
             }
         } else {
@@ -160,7 +160,7 @@ class ControllerFactures extends Controller {
             // Recalculer le total
             $facturesManager->updateMontantTotal($id_facture);
             
-            header('Location: /ElevageHome/public/?url=factures/addlignes/' . $id_facture);
+            header('Location: /agribest/public/?url=factures/addlignes/' . $id_facture);
             exit;
         } catch (Exception $e) {
             throw new Exception('Erreur: ' . $e->getMessage());
@@ -212,7 +212,7 @@ class ControllerFactures extends Controller {
             
             try {
                 $facturesManager->updateStatutPaiement($id, $data['statut_paiement'], $data['mode_paiement'] ?? null);
-                header('Location: /ElevageHome/public/?url=factures/view/' . $id);
+                header('Location: /agribest/public/?url=factures/view/' . $id);
                 exit;
             } catch (Exception $e) {
                 $error = 'Erreur: ' . $e->getMessage();
@@ -236,7 +236,7 @@ class ControllerFactures extends Controller {
         
         try {
             $facturesManager->deleteFacture($id);
-            header('Location: /ElevageHome/public/?url=factures');
+            header('Location: /agribest/public/?url=factures');
             exit;
         } catch (Exception $e) {
             throw new Exception('Erreur: ' . $e->getMessage());

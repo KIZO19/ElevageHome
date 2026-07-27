@@ -2,7 +2,7 @@
 
 <div class="content-header">
     <h1>✏️ Éditer l'utilisateur</h1>
-    <a href="/ElevageHome/public/?url=admin/users" class="btn btn-secondary">← Retour</a>
+    <a href="/agribest/public/?url=admin/users" class="btn btn-secondary">← Retour</a>
 </div>
 
 <div style="max-width: 600px;">
@@ -83,7 +83,7 @@
                 
                 <div style="display: flex; gap: 10px; margin-top: 30px;">
                     <button type="submit" class="btn btn-primary">✅ Mettre à jour</button>
-                    <a href="/ElevageHome/public/?url=admin/users" class="btn btn-secondary">Annuler</a>
+                    <a href="/agribest/public/?url=admin/users" class="btn btn-secondary">Annuler</a>
                 </div>
             </form>
         </div>

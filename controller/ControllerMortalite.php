@@ -7,7 +7,7 @@ class ControllerMortalite extends Controller {
         
         // Vérifier l'authentification
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /ElevageHome/public/?url=auth/login');
+            header('Location: /agribest/public/?url=auth/login');
             exit;
         }
         
@@ -57,7 +57,7 @@ class ControllerMortalite extends Controller {
             
             try {
                 $mortaliteManager->addMortalite($data);
-                header('Location: /ElevageHome/public/?url=mortalite');
+                header('Location: /agribest/public/?url=mortalite');
                 exit;
             } catch (Exception $e) {
                 $error = 'Erreur lors de l\'ajout: ' . $e->getMessage();
@@ -97,7 +97,7 @@ class ControllerMortalite extends Controller {
             
             try {
                 $mortaliteManager->updateMortalite($id, $data);
-                header('Location: /ElevageHome/public/?url=mortalite');
+                header('Location: /agribest/public/?url=mortalite');
                 exit;
             } catch (Exception $e) {
                 $error = 'Erreur: ' . $e->getMessage();
@@ -125,7 +125,7 @@ class ControllerMortalite extends Controller {
         
         try {
             $mortaliteManager->deleteMortalite($id);
-            header('Location: /ElevageHome/public/?url=mortalite');
+            header('Location: /agribest/public/?url=mortalite');
             exit;
         } catch (Exception $e) {
             throw new Exception('Erreur lors de la suppression: ' . $e->getMessage());

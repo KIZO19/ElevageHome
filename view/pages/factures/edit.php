@@ -3,8 +3,8 @@
 <div class="content-header">
     <h1>✏️ Modifier Facture</h1>
     <div class="breadcrumb">
-        <a href="/ElevageHome/public/?url=dashboard">Accueil</a> / 
-        <a href="/ElevageHome/public/?url=factures">Factures</a> / 
+        <a href="/agribest/public/?url=dashboard">Accueil</a> / 
+        <a href="/agribest/public/?url=factures">Factures</a> / 
         Modifier
     </div>
 </div>
@@ -74,7 +74,7 @@
 
                 <div style="display: flex; gap: 10px; margin-top: 30px;">
                     <button type="submit" class="btn btn-primary">✅ Mettre à jour</button>
-                    <a href="/ElevageHome/public/?url=factures/view/<?php echo $facture['id_facture']; ?>" class="btn btn-secondary">❌ Annuler</a>
+                    <a href="/agribest/public/?url=factures/view/<?php echo $facture['id_facture']; ?>" class="btn btn-secondary">❌ Annuler</a>
                 </div>
             </form>
         </div>
@@ -133,10 +133,10 @@
             </div>
             <div class="card-body">
                 <div style="display: flex; flex-direction: column; gap: 8px;">
-                    <a href="/ElevageHome/public/?url=factures/view/<?php echo $facture['id_facture']; ?>" class="btn btn-primary" style="display: block; text-align: center; padding: 10px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-weight: 600;">
+                    <a href="/agribest/public/?url=factures/view/<?php echo $facture['id_facture']; ?>" class="btn btn-primary" style="display: block; text-align: center; padding: 10px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-weight: 600;">
                         👁️ Voir Détail
                     </a>
-                    <a href="/ElevageHome/public/?url=factures" class="btn btn-secondary" style="display: block; text-align: center; padding: 10px; background: #e9ecef; color: #495057; text-decoration: none; border-radius: 4px; font-weight: 600;">
+                    <a href="/agribest/public/?url=factures" class="btn btn-secondary" style="display: block; text-align: center; padding: 10px; background: #e9ecef; color: #495057; text-decoration: none; border-radius: 4px; font-weight: 600;">
                         ← Retour Liste
                     </a>
                 </div>

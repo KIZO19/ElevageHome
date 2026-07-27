@@ -3,14 +3,14 @@
 <div class="content-header">
     <h1>🐔 Gestion des Espèces</h1>
     <div class="breadcrumb">
-        <a href="/ElevageHome/public/?url=dashboard">Accueil</a> / Espèces
+        <a href="/agribest/public/?url=dashboard">Accueil</a> / Espèces
     </div>
 </div>
 
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Liste des Espèces</h3>
-        <a href="/ElevageHome/public/?url=bandes/add" class="btn btn-primary btn-sm">➕ Ajouter une Espèce</a>
+        <a href="/agribest/public/?url=bandes/add" class="btn btn-primary btn-sm">➕ Ajouter une Espèce</a>
     </div>
     <div class="card-body">
         <div style="overflow-x: auto;">
@@ -66,8 +66,8 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <a href="/ElevageHome/public/?url=bandes/edit/<?php echo $b['id_bande']; ?>" class="btn btn-primary btn-sm">✏️</a>
-                                    <a href="/ElevageHome/public/?url=bandes/delete/<?php echo $b['id_bande']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Clôturer cette espèce?')">🗑️</a>
+                                    <a href="/agribest/public/?url=bandes/edit/<?php echo $b['id_bande']; ?>" class="btn btn-primary btn-sm">✏️</a>
+                                    <a href="/agribest/public/?url=bandes/delete/<?php echo $b['id_bande']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Clôturer cette espèce?')">🗑️</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

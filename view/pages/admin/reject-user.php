@@ -25,7 +25,7 @@
                 
                 <div style="display: flex; gap: 10px;">
                     <button type="submit" class="btn btn-danger">❌ Confirmer le rejet</button>
-                    <a href="/ElevageHome/public/?url=admin/pending" class="btn btn-secondary">Annuler</a>
+                    <a href="/agribest/public/?url=admin/pending" class="btn btn-secondary">Annuler</a>
                 </div>
             </form>
         </div>

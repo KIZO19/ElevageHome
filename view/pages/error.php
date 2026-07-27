@@ -12,8 +12,8 @@ $title = 'Erreur';
             <h2>Une erreur est survenue</h2>
             <p><?php echo htmlspecialchars($errorMsg ?? 'Une erreur inconnue est survenue.'); ?></p>
             <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
-                <a href="/ElevageHome/public/?url=dashboard" class="btn btn-primary">Retour au tableau de bord</a>
-                <a href="/ElevageHome/public/?url=auth/login" class="btn btn-secondary">Connexion</a>
+                <a href="/agribest/public/?url=dashboard" class="btn btn-primary">Retour au tableau de bord</a>
+                <a href="/agribest/public/?url=auth/login" class="btn btn-secondary">Connexion</a>
             </div>
         </div>
     </div>

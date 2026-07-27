@@ -3,14 +3,14 @@
 <div class="content-header">
     <h1>💸 Gestion des Dépenses</h1>
     <div class="breadcrumb">
-        <a href="/ElevageHome/public/?url=dashboard">Accueil</a> / Dépenses
+        <a href="/agribest/public/?url=dashboard">Accueil</a> / Dépenses
     </div>
 </div>
 
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Liste des Dépenses</h3>
-        <a href="/ElevageHome/public/?url=depenses/add" class="btn btn-primary btn-sm">➕ Ajouter</a>
+        <a href="/agribest/public/?url=depenses/add" class="btn btn-primary btn-sm">➕ Ajouter</a>
     </div>
     <div class="card-body">
         <div style="overflow-x: auto;">
@@ -45,8 +45,8 @@
                                 <td><?php echo number_format($d['prix_unitaire'], 2); ?> FC</td>
                                 <td><strong><?php echo number_format($d['montant_total_charge'], 2); ?> FC</strong></td>
                                 <td>
-                                    <a href="/ElevageHome/public/?url=depenses/edit/<?php echo $d['id_depense']; ?>" class="btn btn-primary btn-sm">✏️</a>
-                                    <a href="/ElevageHome/public/?url=depenses/delete/<?php echo $d['id_depense']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Supprimer?')">🗑️</a>
+                                    <a href="/agribest/public/?url=depenses/edit/<?php echo $d['id_depense']; ?>" class="btn btn-primary btn-sm">✏️</a>
+                                    <a href="/agribest/public/?url=depenses/delete/<?php echo $d['id_depense']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Supprimer?')">🗑️</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

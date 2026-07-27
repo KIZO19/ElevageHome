@@ -3,8 +3,8 @@
 <div class="content-header">
     <h1>📄 Détail Facture</h1>
     <div class="breadcrumb">
-        <a href="/ElevageHome/public/?url=dashboard">Accueil</a> / 
-        <a href="/ElevageHome/public/?url=factures">Factures</a> / 
+        <a href="/agribest/public/?url=dashboard">Accueil</a> / 
+        <a href="/agribest/public/?url=factures">Factures</a> / 
         Détail
     </div>
 </div>
@@ -15,8 +15,8 @@
         <div class="card-header">
             <h3 class="card-title">Facture <?php echo htmlspecialchars($facture['numero_facture']); ?></h3>
             <div>
-                <a href="/ElevageHome/public/?url=factures/pos/<?php echo $facture['id_facture']; ?>" class="btn btn-primary btn-sm">🧾 Vue POS</a>
-                <a href="/ElevageHome/public/?url=factures/edit/<?php echo $facture['id_facture']; ?>" class="btn btn-primary btn-sm">✏️ Modifier Paiement</a>
+                <a href="/agribest/public/?url=factures/pos/<?php echo $facture['id_facture']; ?>" class="btn btn-primary btn-sm">🧾 Vue POS</a>
+                <a href="/agribest/public/?url=factures/edit/<?php echo $facture['id_facture']; ?>" class="btn btn-primary btn-sm">✏️ Modifier Paiement</a>
                 <a href="javascript:window.print()" class="btn btn-secondary btn-sm">🖨️ Imprimer</a>
             </div>
         </div>
@@ -191,13 +191,13 @@
             </div>
             <div class="card-body">
                 <div style="display: flex; flex-direction: column; gap: 8px;">
-                    <a href="/ElevageHome/public/?url=factures/edit/<?php echo $facture['id_facture']; ?>" class="btn btn-primary" style="display: block; text-align: center; padding: 10px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-weight: 600;">
+                    <a href="/agribest/public/?url=factures/edit/<?php echo $facture['id_facture']; ?>" class="btn btn-primary" style="display: block; text-align: center; padding: 10px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-weight: 600;">
                         ✏️ Modifier Statut
                     </a>
-                    <a href="/ElevageHome/public/?url=factures" class="btn btn-secondary" style="display: block; text-align: center; padding: 10px; background: #e9ecef; color: #495057; text-decoration: none; border-radius: 4px; font-weight: 600;">
+                    <a href="/agribest/public/?url=factures" class="btn btn-secondary" style="display: block; text-align: center; padding: 10px; background: #e9ecef; color: #495057; text-decoration: none; border-radius: 4px; font-weight: 600;">
                         ← Retour Liste
                     </a>
-                    <a href="/ElevageHome/public/?url=factures/delete/<?php echo $facture['id_facture']; ?>" class="btn btn-danger" style="display: block; text-align: center; padding: 10px; background: #dc3545; color: white; text-decoration: none; border-radius: 4px; font-weight: 600;" onclick="return confirm('Supprimer cette facture?')">
+                    <a href="/agribest/public/?url=factures/delete/<?php echo $facture['id_facture']; ?>" class="btn btn-danger" style="display: block; text-align: center; padding: 10px; background: #dc3545; color: white; text-decoration: none; border-radius: 4px; font-weight: 600;" onclick="return confirm('Supprimer cette facture?')">
                         🗑️ Supprimer
                     </a>
                 </div>

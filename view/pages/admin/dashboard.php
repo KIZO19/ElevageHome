@@ -20,7 +20,7 @@
 </div>
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
-    <a href="/ElevageHome/public/?url=admin/pending" class="card-link">
+    <a href="/agribest/public/?url=admin/pending" class="card-link">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">📋 Comptes en attente</h3>
@@ -34,7 +34,7 @@
         </div>
     </a>
     
-    <a href="/ElevageHome/public/?url=admin/users" class="card-link">
+    <a href="/agribest/public/?url=admin/users" class="card-link">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">👥 Tous les utilisateurs</h3>

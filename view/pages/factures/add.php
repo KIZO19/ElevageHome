@@ -3,8 +3,8 @@
 <div class="content-header">
     <h1>➕ Créer une Facture</h1>
     <div class="breadcrumb">
-        <a href="/ElevageHome/public/?url=dashboard">Accueil</a> / 
-        <a href="/ElevageHome/public/?url=factures">Factures</a> / 
+        <a href="/agribest/public/?url=dashboard">Accueil</a> / 
+        <a href="/agribest/public/?url=factures">Factures</a> / 
         Créer
     </div>
 </div>
@@ -64,7 +64,7 @@
 
             <div style="display: flex; gap: 10px; margin-top: 30px;">
                 <button type="submit" class="btn btn-primary">✅ Créer Facture</button>
-                <a href="/ElevageHome/public/?url=factures" class="btn btn-secondary">❌ Annuler</a>
+                <a href="/agribest/public/?url=factures" class="btn btn-secondary">❌ Annuler</a>
             </div>
         </form>
     </div>

@@ -265,7 +265,7 @@
             </div>
 
             <div class="register-footer">
-                <p>Vous avez déjà un compte? <a href="/ElevageHome/public/?url=auth/login">Se connecter ici</a></p>
+                <p>Vous avez déjà un compte? <a href="/agribest/public/?url=auth/login">Se connecter ici</a></p>
             </div>
         </div>
     </div>

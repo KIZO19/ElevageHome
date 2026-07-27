@@ -2,7 +2,7 @@
 
 <div class="content-header">
     <h1>👥 Gestion des utilisateurs</h1>
-    <a href="/ElevageHome/public/?url=admin/dashboard" class="btn btn-secondary">← Retour</a>
+    <a href="/agribest/public/?url=admin/dashboard" class="btn btn-secondary">← Retour</a>
 </div>
 
 <div class="card">
@@ -53,18 +53,18 @@
                                 <?php echo date('d/m/Y', strtotime($user['created_at'])); ?>
                             </td>
                             <td>
-                                <a href="/ElevageHome/public/?url=admin/edit/<?php echo $user['id_utilisateur']; ?>" 
+                                <a href="/agribest/public/?url=admin/edit/<?php echo $user['id_utilisateur']; ?>" 
                                    class="btn-sm" style="background: #007bff; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-size: 11px;">
                                     ✏️ Modifier
                                 </a>
                                 <?php if ($user['statut_compte'] === 'actif'): ?>
-                                    <a href="/ElevageHome/public/?url=admin/suspend/<?php echo $user['id_utilisateur']; ?>" 
+                                    <a href="/agribest/public/?url=admin/suspend/<?php echo $user['id_utilisateur']; ?>" 
                                        onclick="return confirm('Suspendre cet utilisateur?')"
                                        class="btn-sm" style="background: #ff9800; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-size: 11px;">
                                         ⏸️ Suspendre
                                     </a>
                                 <?php else: ?>
-                                    <a href="/ElevageHome/public/?url=admin/activate/<?php echo $user['id_utilisateur']; ?>" 
+                                    <a href="/agribest/public/?url=admin/activate/<?php echo $user['id_utilisateur']; ?>" 
                                        class="btn-sm" style="background: #28a745; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-size: 11px;">
                                         ▶️ Activer
                                     </a>

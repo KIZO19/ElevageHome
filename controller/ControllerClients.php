@@ -7,7 +7,7 @@ class ControllerClients extends Controller {
         
         // Vérifier l'authentification
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /ElevageHome/public/?url=auth/login');
+            header('Location: /agribest/public/?url=auth/login');
             exit;
         }
         
@@ -58,7 +58,7 @@ class ControllerClients extends Controller {
             
             try {
                 $clientsManager->addClient($data);
-                header('Location: /ElevageHome/public/?url=clients');
+                header('Location: /agribest/public/?url=clients');
                 exit;
             } catch (Exception $e) {
                 $error = 'Erreur lors de l\'ajout: ' . $e->getMessage();
@@ -104,7 +104,7 @@ class ControllerClients extends Controller {
             
             try {
                 $clientsManager->updateClient($id, $data);
-                header('Location: /ElevageHome/public/?url=clients');
+                header('Location: /agribest/public/?url=clients');
                 exit;
             } catch (Exception $e) {
                 $error = 'Erreur: ' . $e->getMessage();
@@ -128,7 +128,7 @@ class ControllerClients extends Controller {
         
         try {
             $clientsManager->deleteClient($id);
-            header('Location: /ElevageHome/public/?url=clients');
+            header('Location: /agribest/public/?url=clients');
             exit;
         } catch (Exception $e) {
             throw new Exception('Erreur lors de la suppression: ' . $e->getMessage());

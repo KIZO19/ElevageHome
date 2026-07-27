@@ -6,7 +6,7 @@ $title = 'Tableau de bord';
 <div class="content-header">
     <h1>📊 Tableau de bord</h1>
     <div class="breadcrumb">
-        <a href="/ElevageHome/public/?url=dashboard">Accueil</a> / Tableau de bord
+        <a href="/agribest/public/?url=dashboard">Accueil</a> / Tableau de bord
     </div>
 </div>
 
@@ -37,7 +37,7 @@ $title = 'Tableau de bord';
                 🔍 Filtrer
             </button>
             
-            <a href="/ElevageHome/public/?url=dashboard" class="btn btn-secondary" style="padding: 10px 20px; background: #e9ecef; color: #495057; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; text-decoration: none; display: inline-block;">
+            <a href="/agribest/public/?url=dashboard" class="btn btn-secondary" style="padding: 10px 20px; background: #e9ecef; color: #495057; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; text-decoration: none; display: inline-block;">
                 ↺ Réinitialiser
             </a>
         </form>
@@ -62,7 +62,7 @@ $title = 'Tableau de bord';
         <span class="info-box-number"><?php echo count($bandes); ?></span>
         <span class="info-box-text">Espèces Actives</span>
         <div class="info-box-more">
-            <a href="/ElevageHome/public/?url=bandes">Plus d'infos →</a>
+            <a href="/agribest/public/?url=bandes">Plus d'infos →</a>
         </div>
     </div>
 
@@ -82,7 +82,7 @@ $title = 'Tableau de bord';
         </span>
         <span class="info-box-text">Dépenses Totales</span>
         <div class="info-box-more">
-            <a href="/ElevageHome/public/?url=depenses">Plus d'infos →</a>
+            <a href="/agribest/public/?url=depenses">Plus d'infos →</a>
         </div>
     </div>
 
@@ -102,7 +102,7 @@ $title = 'Tableau de bord';
         </span>
         <span class="info-box-text">Recettes Totales</span>
         <div class="info-box-more">
-            <a href="/ElevageHome/public/?url=ventes">Plus d'infos →</a>
+            <a href="/agribest/public/?url=ventes">Plus d'infos →</a>
         </div>
     </div>
 
@@ -114,7 +114,7 @@ $title = 'Tableau de bord';
         <span class="info-box-number"><?php echo number_format($totalDisponible, 0); ?> </span>
         <span class="info-box-text">Stock Disponible</span>
         <div class="info-box-more">
-            <a href="/ElevageHome/public/?url=bandes">Plus d'infos →</a>
+            <a href="/agribest/public/?url=bandes">Plus d'infos →</a>
         </div>
     </div>
 
@@ -126,7 +126,7 @@ $title = 'Tableau de bord';
         <span class="info-box-number"><?php echo count($mortalites); ?></span>
         <span class="info-box-text">Cas de Mortalité</span>
         <div class="info-box-more">
-            <a href="/ElevageHome/public/?url=mortalite">Plus d'infos →</a>
+            <a href="/agribest/public/?url=mortalite">Plus d'infos →</a>
         </div>
     </div>
 </div>
@@ -206,7 +206,7 @@ $title = 'Tableau de bord';
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">💸 Dépenses Récentes</h3>
-        <a href="/ElevageHome/public/?url=depenses" class="btn btn-primary btn-sm">Voir tout</a>
+        <a href="/agribest/public/?url=depenses" class="btn btn-primary btn-sm">Voir tout</a>
     </div>
     <div class="card-body">
         <table class="table">
@@ -236,7 +236,7 @@ $title = 'Tableau de bord';
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">🛒 Ventes Récentes</h3>
-        <a href="/ElevageHome/public/?url=ventes" class="btn btn-primary btn-sm">Voir tout</a>
+        <a href="/agribest/public/?url=ventes" class="btn btn-primary btn-sm">Voir tout</a>
     </div>
     <div class="card-body">
         <table class="table">

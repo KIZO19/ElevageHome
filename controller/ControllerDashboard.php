@@ -5,7 +5,7 @@ class ControllerDashboard extends Controller {
         parent::__construct($url);
         
         if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
-            header('Location: /ElevageHome/public/?url=auth/login');
+            header('Location: /agribest/public/?url=auth/login');
             exit;
         }
 
